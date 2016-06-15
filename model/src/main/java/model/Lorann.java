@@ -45,7 +45,6 @@ public class Lorann extends Affichable{
 			break;
 		default:
 			break;
-		
 		}
 	}
 /*	public void launchSpell(){

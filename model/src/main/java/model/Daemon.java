@@ -26,7 +26,6 @@ public class Daemon extends Affichable{
 			}
 			
 		} catch (IOException e) {
-			//Le tuteur roxx du ponayyy
 			e.printStackTrace();
 		}
 	}

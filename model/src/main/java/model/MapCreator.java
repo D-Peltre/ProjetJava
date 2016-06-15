@@ -58,4 +58,7 @@ public class MapCreator extends DBConnection{
 	public ArrayList<Object> getObjects(){
 		return this.al;
 	}
+	public String getMap(){
+		return this.map;
+	}
 }
