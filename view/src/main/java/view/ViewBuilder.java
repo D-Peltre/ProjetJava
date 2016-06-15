@@ -1,12 +1,16 @@
 package view;
 
+import java.awt.Color;
+
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
-/*
+import contract.IAffichable;
+
+/****
 - = mur horizontal
 | = mur vertical
 o = mur diagonal
@@ -15,24 +19,25 @@ o = mur diagonal
 d = démon
 $ = bourse
 L = Lorann
-*/
+****/
 
 public class ViewBuilder{
-   private ArrayList objects;
+   private IAffichable[] objects;
    private ViewPanel viewpanel;
    public ViewBuilder(ViewPanel viewpanel) {
 	 this.viewpanel=viewpanel;
      }
-   public void update(ArrayList object) {	 
+   public void update(IAffichable[] object) {	 
 	   this.objects=object;
        }
    public void render(Graphics graphics){
 	 graphics.clearRect(0, 0, this.viewpanel.getWidth(), this.viewpanel.getHeight());
+	 graphics.setColor(new Color(0,0,0));
+	 graphics.fillRect(0, 0, this.viewpanel.getWidth(), this.viewpanel.getHeight());
+	 graphics.setColor(new Color(255,255,255));
+	 for(IAffichable object:this.objects){
+		   graphics.drawImage(object.getSprite(), object.getX(), object.getY(), 8,8, viewpanel);
+		   }
 	 graphics.drawString("Score: 15", 10, this.viewpanel.getHeight()-8);
-	 //for(Object object:objects){
-		   //int x=object.get_pos()[0];
-		   //int y=object.get_pos()[1];
-		   //graphics.drawImage(object.getsprite(), x, y, 8,8);
-	//	   }
-	  }
+	 }
    }

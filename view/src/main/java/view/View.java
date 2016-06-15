@@ -4,10 +4,11 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.SwingUtilities;
 
-import contract.ControllerOrder;
+import contract.IAffichable;
 import contract.IController;
 import contract.IModel;
 import contract.IView;
+import contract.PossibleMove;
 
 /**
  * The Class View.
@@ -37,18 +38,28 @@ public class View implements IView, Runnable {
 	 *          the key code
 	 * @return the controller order
 	 */
-	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode) {
+	protected static PossibleMove keyCodeToControllerOrder(final int keyCode) {
 		switch (keyCode) {
-			case KeyEvent.VK_G:
-				return ControllerOrder.English;
-			case KeyEvent.VK_F:
-				return ControllerOrder.Francais;
-			case KeyEvent.VK_D:
-				return ControllerOrder.Deutsch;
-			case KeyEvent.VK_I:
-				return ControllerOrder.Indonesia;
-			default:
-				return ControllerOrder.English;
+		case KeyEvent.VK_NUMPAD1:
+			return PossibleMove.DOWNLEFT;
+		case KeyEvent.VK_NUMPAD2:
+			return PossibleMove.DOWN;
+		case KeyEvent.VK_NUMPAD3:
+			return PossibleMove.DOWNRIGHT;
+		case KeyEvent.VK_NUMPAD4:
+			return PossibleMove.LEFT;
+		case KeyEvent.VK_NUMPAD5:
+			return PossibleMove.FIRE;
+		case KeyEvent.VK_NUMPAD6:
+			return PossibleMove.RIGHT;
+		case KeyEvent.VK_NUMPAD7:
+			return PossibleMove.UPLEFT;
+		case KeyEvent.VK_NUMPAD8:
+			return PossibleMove.UP;
+		case KeyEvent.VK_NUMPAD9:
+			return PossibleMove.UPRIGHT;
+		default:
+			return null;
 		}
 	}
 
@@ -59,6 +70,10 @@ public class View implements IView, Runnable {
 	 */
 	public void printMessage(final String message) {
 		this.viewFrame.printMessage(message);
+	}
+	
+	public void send_objects(IAffichable[] objects){
+		this.viewFrame.getViewPanel().send(objects);
 	}
 
 	/*

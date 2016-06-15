@@ -6,6 +6,8 @@ import java.util.Observer;
 
 import javax.swing.JPanel;
 
+import contract.IAffichable;
+
 /**
  * The Class ViewPanel.
  *
@@ -58,6 +60,10 @@ class ViewPanel extends JPanel implements Observer {
 	public void update(final Observable arg0, final Object arg1) {
 		this.repaint();
 	}
+	
+	public void send(IAffichable[] objects){
+		this.viewbuilder.update(objects);
+	    }
 
 	/*
 	 * (non-Javadoc)
