@@ -10,6 +10,7 @@ import javax.imageio.ImageIO;
 public class Lorann extends Affichable{
 	Image actualSprite;
 	HashMap <PossibleMove,Image>  hm = new HashMap<PossibleMove, Image>();
+	
 	public Lorann(int x, int y) {
 		super(x,y);
 		try {
@@ -25,29 +26,55 @@ public class Lorann extends Affichable{
 			e.printStackTrace();
 		}
 	}
-	public void move(PossibleMove move){
-		switch(move){
-		case DOWN: this.y = y + 1; this.actualSprite = hm.get(PossibleMove.DOWN);
-			break;
-		case DOWNLEFT: this.y = y + 1; this.x = x - 1; this.actualSprite = hm.get(PossibleMove.DOWNLEFT);
-			break;
-		case DOWNRIGHT: this.y = y + 1; this.x = x + 1; this.actualSprite = hm.get(PossibleMove.DOWNRIGHT);
-			break;
-		case LEFT: this.x = x - 1; this.actualSprite = hm.get(PossibleMove.LEFT);
-			break;
-		case RIGHT: this.x = x + 1; this.actualSprite = hm.get(PossibleMove.RIGHT);
-			break;
-		case UP: this.y = y - 1; this.actualSprite = hm.get(PossibleMove.UP);
-			break;
-		case UPLEFT: this.y = y - 1; this.x = x - 1; this.actualSprite = hm.get(PossibleMove.UPLEFT);
-			break;
-		case UPRIGHT: this.y = y - 1; this.x = x + 1; this.actualSprite = hm.get(PossibleMove.UPRIGHT);
-			break;
-		default:
-			break;
-		
-		}
+	
+	
+	public void moveDown(){
+		this.y = y +1;
+		this.actualSprite = hm.get(PossibleMove.DOWN);
 	}
+	
+	public void moveDownLeft(){
+		this.y = y + 1;
+		this.x = x - 1;
+		this.actualSprite = hm.get(PossibleMove.DOWNLEFT);
+	}
+	
+	public void moveDownRight(){
+		this.y = y + 1;
+		this.x = x + 1;
+		this.actualSprite = hm.get(PossibleMove.DOWNRIGHT);
+	}
+	
+	public void moveLeft(){
+		this.x = x - 1; 
+		this.actualSprite = hm.get(PossibleMove.LEFT);
+	}
+	
+	public void moveRight(){
+		this.x = x + 1; 
+		this.actualSprite = hm.get(PossibleMove.RIGHT);
+	}
+	
+	public void moveUp(){
+		this.y = y - 1; 
+		this.actualSprite = hm.get(PossibleMove.UP);
+	}
+	
+	public void moveUpLeft(){
+		this.y = y - 1; 
+		this.x = x - 1; 
+		this.actualSprite = hm.get(PossibleMove.UPLEFT);
+	}
+	
+	public void moveUpRight(){
+		this.y = y - 1; 
+		this.x = x + 1; 
+		this.actualSprite = hm.get(PossibleMove.UPRIGHT);
+	}
+	
+
+	
+	
 /*	public void launchSpell(){
 		Spell spell = new Spell(this.getX(), this.getY());
 	}*/

@@ -1,15 +1,14 @@
 package controller;
 
-import contract.IController;
-import contract.IModel;
+import contract.IAffichable;
 import contract.IView;
 import contract.PossibleMove;
 
 public class Controller {
 	private IView view;
-	private IModel model;
+	private IAffichable model;
 	
-	public Controller(final IView view, final IModel model) {
+	public Controller(final IView view, final IAffichable model) {
 		this.setView(view);
 		this.setModel(model);
 	}
@@ -18,36 +17,38 @@ public class Controller {
 		this.view = view;
 	}
 	
-	private void setModel(final IModel model) {
+	private void setModel(final IAffichable model) {
 		this.model = model;
 	}
 	
 	public void orderDirection (PossibleMove possibleMove){
 		switch(possibleMove){
 			case LEFT:
-				this.model.
+				this.model.moveLeft();
 				break;
 			case RIGHT:
-				this.model 
+				this.model.moveRight();
 				break;
 			case UP:
-				this.model 
+				this.model.moveUp();
 				break;
 			case DOWN:
-				this.model
+				this.model.moveDown();
 				break;
 			case UPRIGHT:
-				this.model 
+				this.model.moveUpRight();
 				break;
 			case UPLEFT:
-				this.model 
+				this.model.moveLeft();
 				break;
 			case DOWNRIGHT:
-				this.model 
+				this.model.moveDownRight();
 				break;
 			case DOWNLEFT:
-				this.model
+				this.model.moveDownLeft();
 				break;
+		default:
+			break;
 		}
 	}
 
