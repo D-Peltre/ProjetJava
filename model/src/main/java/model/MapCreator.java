@@ -1,25 +1,31 @@
 package model;
 
+import java.sql.CallableStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.mysql.jdbc.CallableStatement;
+
 
 
 public class MapCreator extends DBConnection{
 	
 	String map = "";
+
 	ArrayList <Object> al;
-	public MapCreator(){
+	public MapCreator() throws SQLException{
+		String idMap = "1";
+		String sql = "{call getMap(?)}";
+		CallableStatement call = connection.prepareCall(sql);
+		call.setString(1, idMap);
 		
-		final String sql = "{call getMap(?)}";
-		final CallableStatement call = this.getConnection().prepareCall(sql);
-		final ResultSet resultSet = call.getResultSet();
+		ResultSet resultSet = call.getResultSet();
 		this.map = resultSet.getString("Map");
 		// Recupere le string de la bdd
 	}
 	
 	public void createObjects(){
+		//read the map and create object corresponding, stock all of them in al
 		ArrayList <Object> al = new ArrayList<Object>();
 		int nbChar = map.length();
 		int y = 0;

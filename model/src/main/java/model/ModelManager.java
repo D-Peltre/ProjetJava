@@ -1,16 +1,25 @@
 package model;
 
 import contract.IModel;
+
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Observable;
 
 public abstract class ModelManager extends Observable implements IModel{
-	ArrayList <Object> al ;
 	
 	public ModelManager(){
-		MapCreator myMap = new MapCreator();
-		this.al = myMap.createObjects();
-		
+		MapCreator myMap = null;
+		try {
+			myMap = new MapCreator();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		myMap.createObjects();
+		World world = new World(myMap.getObjects());
 		
 	}
+
+	
+	
 }
