@@ -8,10 +8,8 @@ import com.mysql.jdbc.CallableStatement;
 
 public class MapCreator extends DBConnection{
 	
-	
-	
 	String map = "";
-	
+	ArrayList <Object> al;
 	public MapCreator(){
 		
 		final String sql = "{call getMap(?)}";
@@ -21,7 +19,7 @@ public class MapCreator extends DBConnection{
 		// Recupere le string de la bdd
 	}
 	
-	public ArrayList <Object> createObjects(){
+	public void createObjects(){
 		ArrayList <Object> al = new ArrayList<Object>();
 		int nbChar = map.length();
 		int y = 0;
@@ -49,6 +47,9 @@ public class MapCreator extends DBConnection{
 					break;
 			}
 		}
-		return al;
+		this.al = al;
+	}
+	public ArrayList<Object> getObjects(){
+		return this.al;
 	}
 }
