@@ -1,9 +1,11 @@
 package model;
 
+import java.sql.CallableStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.mysql.jdbc.CallableStatement;
+
 
 
 public class MapCreator extends DBConnection{
@@ -12,11 +14,14 @@ public class MapCreator extends DBConnection{
 	
 	String map = "";
 	
-	public MapCreator(){
+	public MapCreator() throws SQLException{
 		
-		final String sql = "{call getMap(?)}";
-		final CallableStatement call = this.getConnection().prepareCall(sql);
-		final ResultSet resultSet = call.getResultSet();
+		String idMap = "1";
+		String sql = "{call getMap(?)}";
+		CallableStatement call = connection.prepareCall(sql);
+		call.setString(1, idMap);
+		
+		ResultSet resultSet = call.getResultSet();
 		this.map = resultSet.getString("Map");
 		// Recupere le string de la bdd
 	}
