@@ -1,84 +1,110 @@
--- phpMyAdmin SQL Dump
--- version 4.5.5.1
--- http://www.phpmyadmin.net
---
--- Client :  127.0.0.1
--- Généré le :  Jeu 02 Juin 2016 à 23:02
--- Version du serveur :  5.7.11
--- Version de PHP :  5.6.19
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+#------------------------------------------------------------
+#        Script MySQL.
+#------------------------------------------------------------
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+#------------------------------------------------------------
+#        Database.
+#------------------------------------------------------------
+CREATE DATABASE `ProjetJavaBDD` ;
 
---
--- Base de données :  `jpublankproject`
---
-CREATE DATABASE `jpublankproject` ;
+USE `ProjetJavaBDD` ;
 
-USE `jpublankproject` ;
+#------------------------------------------------------------
+# Table: Map
+#------------------------------------------------------------
 
-DELIMITER $$
---
--- Procédures
---
-CREATE DEFINER=`root`@`localhost` PROCEDURE `helloworldById` (IN `p_id` INT)  READS SQL DATA
-    SQL SECURITY INVOKER
-SELECT * FROM helloworld WHERE id = p_id$$
+CREATE TABLE Map(
+        Id_Map int Auto_increment  NOT NULL ,
+        Map    Text ,
+        PRIMARY KEY (Id_Map )
+)ENGINE=InnoDB;
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `HelloworldByKey` (IN `p_key` VARCHAR(2))  READS SQL DATA
-    SQL SECURITY INVOKER
-SELECT * FROM jpublankproject.helloworld where `key`=p_key$$
+
+#------------------------------------------------------------
+# Procédure
+#------------------------------------------------------------
+
+DELIMITER |                                                      
+CREATE PROCEDURE getMap (p_id_map INT)
+
+BEGIN
+    SELECT Map 
+    FROM Race
+    WHERE Id_Map = p_id_map ;                             
+END |
 
 DELIMITER ;
 
--- --------------------------------------------------------
 
---
--- Structure de la table `helloworld`
---
+#------------------------------------------------------------
+# String Map
+#------------------------------------------------------------
 
-CREATE TABLE `helloworld` (
-  `id` int(11) NOT NULL,
-  `key` varchar(2) NOT NULL,
-  `message` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Contenu de la table `helloworld`
---
+INSERT INTO map (map)
+VALUES
+('o--------------o-{-o
+|L o o        $|  d|
+| o o   |      |   |
+|o o----o----o o-o |
+| o| *  |$    d  | |
+|o |    | o----o | |
+|  |  d |       d| |
+|  |    o------- | |
+|  |             | |
+|  o-------------o |
+|          $       |
+o------------------o'),
 
-INSERT INTO `helloworld` (`id`, `key`, `message`) VALUES
-(1, 'GB', 'Hello world'),
-(2, 'FR', 'Bonjour le monde'),
-(3, 'DE', 'Hallo Welt'),
-(4, 'ID', 'Salamat pagi dunia');
+('o------------------o
+|$       |     d  $|
+| o---o  |  o----o |
+| |d | o-o-o | { | |
+| |   o| L  o|   | |
+|  o | o   o |  o  |
+|    |o    |o|     |
+| |  | o-o-o |   | |
+| |* |o  |  o|d  | |
+| o--o   |   o---o |
+|$  d    |        $|
+o------------------o'),
 
---
--- Index pour les tables exportées
---
+('o-o-o---o---o----o-o
+|B|     |$$ |    |}|
+| | o   |$$ |  L | |
+| | |  *|  d|    | |
+| | |   o-o | o-o| |
+| | |    $| | |$||$|
+| o |  o--o | o ||$|
+|   |       |   || |
+| o-o-------o o-o| |
+|                o |
+|                  |
+o------------------o'),
 
---
--- Index pour la table `helloworld`
---
-ALTER TABLE `helloworld`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `key_UNIQUE` (`key`);
+('o--------------o---o
+|$            $|  L|
+| o--o oo----o | o |
+| |    |D      | o |
+| o o  |  -o   |   |
+|   |  |$  | o | o |
+| o |  |   o | | $ |
+| | |  |     | o o |
+| | |  o   o | o   |
+| o |  oo oo | o   |
+|* d|        |$  o |
+o---o--------o---o}o'),
 
---
--- AUTO_INCREMENT pour les tables exportées
---
-
---
--- AUTO_INCREMENT pour la table `helloworld`
---
-ALTER TABLE `helloworld`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+('o------------------o
+|               o  |
+|  |    o-------|$d|
+|  |  o         o--|
+|  |  |        o   |
+{d |  |    d   |  L|
+|  |  |        o   |
+|  |   o        o--|
+|  |    o-------|d$|
+|  |        *   o  |
+|                  |
+o------------------o');
