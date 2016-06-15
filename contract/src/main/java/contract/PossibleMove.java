@@ -1,6 +1,6 @@
 package contract;
 
-public enum PossibleMouv {
+public enum PossibleMove {
 	
 	LEFT,
 	RIGHT,
