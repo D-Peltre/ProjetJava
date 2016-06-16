@@ -3,6 +3,7 @@ package model;
 import java.awt.Image;
 
 import contract.IAffichable;
+import contract.IWorld;
 
 public class Affichable implements IAffichable{
 	String typeObject=" ";
@@ -31,7 +32,7 @@ public class Affichable implements IAffichable{
 		return null;
 	}
 
-	public void registerWorld(model.World y) {
+	public void registerWorld(IWorld y) {
 		this.world=(model.World) y;
 	}
 }

@@ -7,8 +7,9 @@ import java.util.ArrayList;
 import javax.swing.Timer;
 
 import contract.IAffichable;
+import contract.IWorld;
 
-public class World {
+public class World implements IWorld{
 ArrayList <IAffichable> al ;
 	public World(ArrayList <IAffichable> al){
 		final World y=this;
