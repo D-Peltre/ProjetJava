@@ -5,14 +5,13 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.Timer;
-import javax.swing.text.Element;
 
 import contract.IAffichable;
 
 public class World {
 ArrayList <IAffichable> al ;
 	public World(ArrayList <IAffichable> al){
-		World y=this;
+		final World y=this;
 		this.al = al;
 		for(IAffichable element:this.al){
 			element.registerWorld(y);

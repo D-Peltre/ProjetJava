@@ -36,7 +36,7 @@ public class ViewBuilder{
 	 graphics.fillRect(0, 0, this.viewpanel.getWidth(), this.viewpanel.getHeight());
 	 graphics.setColor(new Color(255,255,255));
 	 for(IAffichable object:this.objects){
-		   graphics.drawImage(object.getSprite(), object.getX(), object.getY(), 8,8, viewpanel);
+		   graphics.drawImage(object.getSprite(), object.getX()*32, object.getY()*32, 8,8, viewpanel);
 		   }
 	 graphics.drawString("Score: 15", 10, this.viewpanel.getHeight()-8);
 	 }

@@ -14,7 +14,8 @@ public class Lorann extends Affichable{
 	String typeObject="L";
 	Image actualSprite;
 	HashMap <PossibleMove,Image>  hm = new HashMap<PossibleMove, Image>();
-	PossibleMove possibleMove=null; 
+	PossibleMove possibleMove=PossibleMove.NONE; 
+	PossibleMove lastMove=PossibleMove.DOWN; 
 	
 	public Lorann(int x, int y) {
 		super(x,y);
@@ -34,6 +35,9 @@ public class Lorann extends Affichable{
 	
 	public void move(PossibleMove possibleMove){
 		this.possibleMove=possibleMove;
+		if(possibleMove!=PossibleMove.NONE){
+			this.lastMove=possibleMove;
+		    }
 	    }
 	
 	public void move(){
@@ -81,6 +85,10 @@ public class Lorann extends Affichable{
 		    }
 		return true;
         }
+	
+	public PossibleMove getLastMove(){
+		return this.lastMove;
+	    }
 	
 	public void moveDown(){
 		this.checkCollisions(x,y+1);

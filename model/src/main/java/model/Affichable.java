@@ -1,8 +1,10 @@
 package model;
 
+import java.awt.Image;
+
 import contract.IAffichable;
 
-public abstract class Affichable implements IAffichable{
+public class Affichable implements IAffichable{
 	String typeObject=" ";
 	int x, y = 0 ;
 	World world;
@@ -10,10 +12,6 @@ public abstract class Affichable implements IAffichable{
 		this.x = x;
 		this.y = y;
 	}
-	
-	public void registerWorld(World y){
-		this.world=y;
-     	}
 	
 	public int getX(){
 		return this.x;
@@ -27,5 +25,13 @@ public abstract class Affichable implements IAffichable{
 	
 	public String get_type(){
 		return this.typeObject;
+	}
+
+	public Image getSprite() {
+		return null;
+	}
+
+	public void registerWorld(model.World y) {
+		this.world=(model.World) y;
 	}
 }

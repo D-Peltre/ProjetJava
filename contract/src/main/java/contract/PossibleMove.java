@@ -10,5 +10,6 @@ public enum PossibleMove {
 	UPLEFT,
 	DOWNRIGHT,
 	DOWNLEFT,
-	FIRE,
+	FIRE, 
+	NONE,
 }
