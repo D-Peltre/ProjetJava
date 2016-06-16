@@ -36,6 +36,7 @@ public class MapCreator extends DBConnection{
 		int nbChar = map.length();
 		int y = 0;
 		int x=0;
+		/// i est l'indice du pointeur vers le map. X et Y sont les coordonnées du nouvel object a créer
 		for(int i = 0;i<nbChar; i++){
 			System.out.print(map.charAt(x));
 			switch(map.charAt(x)){
@@ -55,6 +56,7 @@ public class MapCreator extends DBConnection{
 					break;
 				case 'L' : al.add(new Lorann(x,y));
 					break;
+					// on incrémente y, et on retourne x a la ligne
 				case 'R' : y+=1; x = 0;
 					break;
 				case 'X' : x = nbChar; break; 
