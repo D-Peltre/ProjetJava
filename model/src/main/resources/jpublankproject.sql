@@ -30,7 +30,7 @@ CREATE PROCEDURE getMap (p_id_map INT)
 
 BEGIN
     SELECT Map 
-    FROM Race
+    FROM map
     WHERE Id_Map = p_id_map ;                             
 END |
 
