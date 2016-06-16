@@ -7,14 +7,14 @@ import java.util.ArrayList;
 import javax.swing.Timer;
 import javax.swing.text.Element;
 
+import contract.IAffichable;
+
 public class World {
-	ArrayList <Object> al ;
+ArrayList <IAffichable> al ;
 	World y=this;
 	public World(ArrayList <Object> al){
 		this.al = al;
 		ActionListener taskPerformer = new ActionListener(){
-
-
 			public void actionPerformed(ActionEvent ae) {
 				
 				y.play();
@@ -24,8 +24,10 @@ public class World {
 	}
 	
 	public void play(){
-		for(Object element:al){
+		for(IAffichable element:al){
 			element.move();
 		}
+		
 	}
+	
 }

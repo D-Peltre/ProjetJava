@@ -19,7 +19,7 @@ public abstract class ModelManager extends Observable implements IModel{
 		World world = new World(myMap.getObjects());
 		
 	}
-
+	
 	
 	
 }

@@ -28,6 +28,38 @@ public class Lorann extends Affichable{
 		}
 	}
 	
+	public void move(PossibleMove possibleMove){
+		switch(possibleMove){
+		case LEFT:
+			this.moveLeft();
+			break;
+		case RIGHT:
+			this.moveRight();
+			break;
+		case UP:
+			this.moveUp();
+			break;
+		case DOWN:
+			this.moveDown();
+			break;
+		case UPRIGHT:
+			this.moveUpRight();
+			break;
+		case UPLEFT:
+			this.moveLeft();
+			break;
+		case DOWNRIGHT:
+			this.moveDownRight();
+			break;
+		case DOWNLEFT:
+			this.moveDownLeft();
+			break;
+		case FIRE:
+			this.fire();
+	default:
+		break;
+	}
+	}
 	
 	public void moveDown(){
 		this.y = y +1;
@@ -73,10 +105,7 @@ public class Lorann extends Affichable{
 		this.actualSprite = hm.get(PossibleMove.UPRIGHT);
 	}
 	
-
-	
-	
-/*	public void launchSpell(){
+	public void launchSpell(){
 		Spell spell = new Spell(this.getX(), this.getY());
-	}*/
+	}
 }
