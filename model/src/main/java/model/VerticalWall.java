@@ -10,7 +10,7 @@ public class VerticalWall extends Affichable{
 	public VerticalWall(int x, int y){
 		super(x,y);
 		try {
-			this.sprite = ImageIO.read(new File("Sprite/vertical_bone.png"));
+			this.sprite = ImageIO.read(new File("/home/yvar/thomb/lorann/vertical_bone.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

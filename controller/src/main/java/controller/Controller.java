@@ -32,5 +32,11 @@ public class Controller implements IController{
 	public void refresh(IAffichable[] objects){
 		this.view.send_objects(objects);
 	}
+	
+	public void control(){
+		while(true){
+			this.refresh(this.model.get_objects());
+		}
+	    }
 
 }

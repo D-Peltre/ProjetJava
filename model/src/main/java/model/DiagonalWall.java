@@ -10,7 +10,7 @@ public class DiagonalWall extends Affichable{
 	public DiagonalWall(int x, int y){
 		super(x,y);
 		try {
-			this.sprite = ImageIO.read(new File("Sprite/bone.png"));
+			this.sprite = ImageIO.read(new File("/home/yvar/thomb/lorann/bone.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

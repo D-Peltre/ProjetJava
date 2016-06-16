@@ -21,14 +21,14 @@ public class Lorann extends Affichable{
 		super(x,y);
 		this.world.set_lorann(this);
 		try {
-			this.hm.put(PossibleMove.LEFT , ImageIO.read(new File("Sprite/lorann_l.png")));
-			this.hm.put(PossibleMove.DOWN , ImageIO.read(new File("Sprite/lorann_d.png")));
-			this.hm.put(PossibleMove.DOWNLEFT , ImageIO.read(new File("Sprite/lorann_dl.png")));
-			this.hm.put(PossibleMove.DOWNRIGHT , ImageIO.read(new File("Sprite/lorann_dr.png")));
-			this.hm.put(PossibleMove.RIGHT , ImageIO.read(new File("Sprite/lorann_r.png")));
-			this.hm.put(PossibleMove.UP , ImageIO.read(new File("Sprite/lorann_u.png")));
-			this.hm.put(PossibleMove.UPLEFT , ImageIO.read(new File("Sprite/lorann_ul.png")));
-			this.hm.put(PossibleMove.UPRIGHT , ImageIO.read(new File("Sprite/lorann_ur.png")));
+			this.hm.put(PossibleMove.LEFT , ImageIO.read(new File("/home/yvar/thomb/lorann/lorann_l.png")));
+			this.hm.put(PossibleMove.DOWN , ImageIO.read(new File("/home/yvar/thomb/lorann/lorann_d.png")));
+			this.hm.put(PossibleMove.DOWNLEFT , ImageIO.read(new File("/home/yvar/thomb/lorann/lorann_dl.png")));
+			this.hm.put(PossibleMove.DOWNRIGHT , ImageIO.read(new File("/home/yvar/thomb/lorann/lorann_dr.png")));
+			this.hm.put(PossibleMove.RIGHT , ImageIO.read(new File("/home/yvar/thomb/lorann/lorann_r.png")));
+			this.hm.put(PossibleMove.UP , ImageIO.read(new File("/home/yvar/thomb/lorann/lorann_u.png")));
+			this.hm.put(PossibleMove.UPLEFT , ImageIO.read(new File("/home/yvar/thomb/lorann/lorann_ul.png")));
+			this.hm.put(PossibleMove.UPRIGHT , ImageIO.read(new File("/home/yvar/thomb/lorann/lorann_ur.png")));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -94,10 +94,13 @@ public class Lorann extends Affichable{
 		    }
 		if(collision.get_type()=="$"){
 			//increase score
+			//rem. bourse
+			this.world.remove(collision);
 		    }
 		if(collision.get_type()=="*" || collision.get_type()=="S"){
 			//increase energie
-			//rem. boule d'energie
+			//rem. boule d'energie/spell
+			this.world.remove(collision);
 		    }
 		
 		return true;
@@ -149,5 +152,6 @@ public class Lorann extends Affichable{
 	
 	public void fire(){
 		Spell spell = new Spell(this.getX(), this.getY());
+		this.world.add(spell);
 	}
 }

@@ -22,7 +22,8 @@ public class MapCreator extends DBConnection{
 		call.setString(1, idMap);
 		
 		ResultSet resultSet = call.getResultSet();
-		this.map = resultSet.getString("Map");
+		//this.map = resultSet.getString("Map");
+		this.map="o--------------o-{-o\n|L o o        $|  d|\n| o o   |      |   |\n|o o----o----o o-o |\n| o| *  |$    d  | |\n|o |    | o----o | |\n|  |  d |       d| |\n|  |    o------- | |\n|  |             | |\n|  o-------------o |\n|          $       |\no------------------oX";
 		// Recupere le string de la bdd
 	}
 	

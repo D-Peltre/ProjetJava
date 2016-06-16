@@ -1,6 +1,8 @@
 package main;
 
+import contract.IModelManager;
 import controller.Controller;
+import model.ModelManager;
 import view.View;
 
 /**
@@ -17,10 +19,10 @@ public abstract class Main {
 	 *          the arguments
 	 */
 	public static void main(final String[] args) {
-	//	final ModelManager model = new Model();
-	//	final View view = new View(model);
-	//	final Controller controller = new Controller(view, model);
-	//	view.setController(controller);
-	//	controller.control();
+		final IModelManager model = new ModelManager();
+		final View view = new View(model);
+		final Controller controller = new Controller(view, model);
+		view.setController(controller);
+		controller.control();
 	}
 }

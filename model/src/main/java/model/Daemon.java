@@ -16,15 +16,15 @@ public class Daemon extends Affichable{
 			double i=Math.random()*4;
 			int j=(int) Math.floor(i);
 			switch(j){
-			case 0 : this.sprite = ImageIO.read(new File("Sprite/monster_1.png"));
+			case 0 : this.sprite = ImageIO.read(new File("/home/yvar/thomb/lorann/monster_1.png"));
 				break;
-			case 1 :this.sprite = ImageIO.read(new File("Sprite/monster_2.png"));
+			case 1 :this.sprite = ImageIO.read(new File("/home/yvar/thomb/lorann/monster_2.png"));
 				break;
-			case 2 :this.sprite = ImageIO.read(new File("Sprite/monster_3.png"));
+			case 2 :this.sprite = ImageIO.read(new File("/home/yvar/thomb/lorann/monster_3.png"));
 				break;
-			case 3 :this.sprite = ImageIO.read(new File("Sprite/monster_4.png"));
+			case 3 :this.sprite = ImageIO.read(new File("/home/yvar/thomb/lorann/monster_4.png"));
 				break;
-			default :this.sprite = ImageIO.read(new File("Sprite/monster_1.png"));
+			default :this.sprite = ImageIO.read(new File("/home/yvar/thomb/lorann/monster_1.png"));
 				break;
 			}
 			

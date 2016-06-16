@@ -10,7 +10,7 @@ public class HorizontalWall extends Affichable{
 	public HorizontalWall(int x, int y){
 		super(x,y);
 		try {
-			this.sprite = ImageIO.read(new File("Sprite/horizontal_bone.png"));
+			this.sprite = ImageIO.read(new File("/home/yvar/thomb/lorann/horizontal_bone.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
