@@ -25,7 +25,7 @@ public class Controller implements IController{
 	}
 	
 	public void orderDirection (PossibleMove possibleMove){
-		this.model.move();
+		this.model.move(possibleMove);
 	}
 	
 	public void refresh(IAffichable[] objects){
