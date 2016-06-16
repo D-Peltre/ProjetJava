@@ -25,36 +25,7 @@ public class Controller implements IController{
 	}
 	
 	public void orderDirection (PossibleMove possibleMove){
-		switch(possibleMove){
-			case LEFT:
-				this.model.moveLeft();
-				break;
-			case RIGHT:
-				this.model.moveRight();
-				break;
-			case UP:
-				this.model.moveUp();
-				break;
-			case DOWN:
-				this.model.moveDown();
-				break;
-			case UPRIGHT:
-				this.model.moveUpRight();
-				break;
-			case UPLEFT:
-				this.model.moveLeft();
-				break;
-			case DOWNRIGHT:
-				this.model.moveDownRight();
-				break;
-			case DOWNLEFT:
-				this.model.moveDownLeft();
-				break;
-			case FIRE:
-				this.model.fire();
-		default:
-			break;
-		}
+		this.model.move();
 	}
 	
 	public void refresh(IAffichable[] objects){
