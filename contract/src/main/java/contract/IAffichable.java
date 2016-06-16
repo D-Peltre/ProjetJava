@@ -8,4 +8,5 @@ public interface IAffichable {
 	public Image getSprite();
 	public void move(PossibleMove possibleMove);
 	public <World> void registerWorld(World y);
+	public String get_type();
 }

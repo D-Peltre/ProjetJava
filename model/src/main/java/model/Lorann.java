@@ -4,6 +4,8 @@ import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
+
+import contract.IAffichable;
 import contract.PossibleMove;
 
 import javax.imageio.ImageIO;
@@ -63,10 +65,14 @@ public class Lorann extends Affichable{
 	}
 	
 	public boolean checkCollisions(int x, int y){
-		if(this.world.get_collision(x, y)==null){
+		IAffichable collision=this.world.get_collision(x, y);
+		if(collision==null){
 		    this.x=x;
 		    this.y=y;
 		    return true;
+		    }
+		if(collision.get_type()=="d"){
+			//die
 		    }
 		return false;
         }
