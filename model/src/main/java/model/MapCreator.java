@@ -39,7 +39,7 @@ public class MapCreator extends DBConnection{
 		/// i est l'indice du pointeur vers le map. X et Y sont les coordonnées du nouvel object a créer
 		for(int i = 0;i<nbChar; i++){
 			System.out.print(map.charAt(x));
-			switch(map.charAt(x)){
+			switch(map.charAt(i)){
 				case '-' : al.add(new HorizontalWall(x, y));
 					break;
 				case '|' : al.add(new VerticalWall(x,y));
