@@ -5,6 +5,8 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import contract.IAffichable;
+
 public class Daemon extends Affichable{
 	String typeObject="d";
 	Image sprite;
@@ -32,6 +34,35 @@ public class Daemon extends Affichable{
 	}
 	
 	public void move(){
-		
-	}
+		x=this.world.get_lorann().getX();
+		y=this.world.get_lorann().getY();
+		int deltaX=this.x-x;
+		int deltaY=this.y-y;
+		if(Math.abs(deltaX)>Math.abs(deltaY)){  //if the player is futher away horizontally than vertically
+			if(deltaX<0){
+				this.checkCollisions(this.x-1, this.y);
+			    }
+			if(deltaX>0){
+				this.checkCollisions(this.x+1, this.y);
+			    }
+		    }
+		else{
+	    	if(deltaY<0){
+		    	this.checkCollisions(this.x, this.y-1);
+		        }
+		    if(deltaY>0){
+			    this.checkCollisions(this.x, this.y+1);
+		        }
+	        }
+	   }
+	
+	public boolean checkCollisions(int x, int y){
+		IAffichable collision=this.world.get_collision(x, y);
+		if(collision==null){
+		    this.x=x;
+		    this.y=y;
+		    return false;
+		    }
+	    return false;
+        }
 }

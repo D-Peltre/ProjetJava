@@ -19,6 +19,7 @@ public class Lorann extends Affichable{
 	
 	public Lorann(int x, int y) {
 		super(x,y);
+		this.world.set_lorann(this);
 		try {
 			this.hm.put(PossibleMove.LEFT , ImageIO.read(new File("Sprite/lorann_l.png")));
 			this.hm.put(PossibleMove.DOWN , ImageIO.read(new File("Sprite/lorann_d.png")));

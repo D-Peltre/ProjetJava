@@ -10,7 +10,8 @@ import contract.IAffichable;
 import contract.IWorld;
 
 public class World implements IWorld{
-ArrayList <IAffichable> al ;
+    ArrayList <IAffichable> al ;
+    Lorann lorann;
 	public World(ArrayList <IAffichable> al){
 		final World y=this;
 		this.al = al;
@@ -25,6 +26,14 @@ ArrayList <IAffichable> al ;
 		};
 		new Timer(200, taskPerformer).start();
 	}
+	
+	public void set_lorann(Lorann lorann){
+		this.lorann=lorann;
+	    }
+	
+	public Lorann get_lorann(){
+		return this.lorann;
+	    }
 	
 	public void play(){
 		for(IAffichable element:al){

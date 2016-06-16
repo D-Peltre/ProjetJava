@@ -37,7 +37,7 @@ public class Spell extends Affichable {
 		this.rebondi.put(PossibleMove.UPLEFT, PossibleMove.DOWNRIGHT);
 		this.rebondi.put(PossibleMove.UPRIGHT, PossibleMove.DOWNLEFT);
 		
-		this.direction = Lorann.getLastMove();
+		this.direction = this.world.get_lorann().getLastMove();
 
 	}
 
