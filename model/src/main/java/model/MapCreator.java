@@ -57,7 +57,7 @@ public class MapCreator extends DBConnection{
 				case 'L' : al.add(new Lorann(x,y));
 					break;
 					// on incrémente y, et on retourne x a la ligne
-				case 'R' : y+=1; x = 0;
+				case 'R' : y+=1; x = -1;
 					break;
 				case 'X' : x = nbChar; break; 
 				default : 
