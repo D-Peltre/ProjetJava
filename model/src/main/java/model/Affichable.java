@@ -1,6 +1,8 @@
 package model;
 
-public abstract class Affichable {
+import contract.IAffichable;
+
+public abstract class Affichable implements IAffichable{
 	String typeObject=" ";
 	int x, y = 0 ;
 	World world;
