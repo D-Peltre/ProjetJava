@@ -15,17 +15,20 @@ public class MapCreator extends DBConnection{
 	String map = "";
 
 	ArrayList<IAffichable> al;
+	
 	public MapCreator() throws SQLException{
 		String idMap = "1";
 		String sql = "{call getMap(?)}";
 		CallableStatement call = connection.prepareCall(sql);
 		call.setString(1, idMap);
-		
+		call.execute();
 		ResultSet resultSet = call.getResultSet();
-		//this.map = resultSet.getString("Map");
-		this.map="o--------------o-{-o\n|L o o        $|  d|\n| o o   |      |   |\n|o o----o----o o-o |\n| o| *  |$    d  | |\n|o |    | o----o | |\n|  |  d |       d| |\n|  |    o------- | |\n|  |             | |\n|  o-------------o |\n|          $       |\no------------------oX";
+		resultSet.next();
+		this.map = resultSet.getString(1);
 		// Recupere le string de la bdd
+		resultSet.close();
 	}
+		
 	
 	public void createObjects(){
 		//read the map and create object corresponding, stock all of them in al
