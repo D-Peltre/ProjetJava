@@ -5,8 +5,6 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class HorizontalWall extends Affichable{
-	String typeObject="-";
-	Image sprite;
 	public HorizontalWall(int x, int y){
 		super(x,y);
 		try {
@@ -15,4 +13,8 @@ public class HorizontalWall extends Affichable{
 			e.printStackTrace();
 		}
 	}
+	public String get_type(){
+		return "-";
+	}
+
 }

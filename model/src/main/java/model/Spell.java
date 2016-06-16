@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 import javax.imageio.ImageIO;
 
@@ -13,7 +14,6 @@ import contract.PossibleMove;
 
 public class Spell extends Affichable {
 	ArrayList<Image> sprites;
-	String typeObject = "S";
 	HashMap<PossibleMove, PossibleMove> rebondi = new HashMap<PossibleMove, PossibleMove>();
 	PossibleMove direction;
 
@@ -42,6 +42,7 @@ public class Spell extends Affichable {
 	}
 
 	public void move() {
+		this.sprite=this.sprites.get(3);
 		switch (direction) {
 		case LEFT:
 			this.checkCollisions(x-1,y);
@@ -72,6 +73,10 @@ public class Spell extends Affichable {
 		}
 
 	}
+	public String get_type(){
+		return "S";
+	}
+
 
 	public boolean checkCollisions(int x, int y) {
 		IAffichable collision = this.world.get_collision(x, y);

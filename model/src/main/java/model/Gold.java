@@ -5,8 +5,6 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class Gold extends Affichable{
-	String typeObject="$";
-	Image sprite;
 	public Gold(int x, int y){
 		super(x,y);
 		try {
@@ -15,4 +13,8 @@ public class Gold extends Affichable{
 			e.printStackTrace();
 		}
 	}
+	public String get_type(){
+		return "$";
+	}
+
 }

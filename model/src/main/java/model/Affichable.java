@@ -5,10 +5,10 @@ import java.awt.Image;
 import contract.IAffichable;
 import contract.IWorld;
 
-public class Affichable implements IAffichable{
-	String typeObject=" ";
+public abstract class Affichable implements IAffichable{
 	int x, y = 0 ;
 	World world;
+	protected Image sprite;
 	Affichable(int x, int y){
 		this.x = x;
 		this.y = y;
@@ -25,11 +25,11 @@ public class Affichable implements IAffichable{
 	}
 	
 	public String get_type(){
-		return this.typeObject;
+		return "?";
 	}
 
 	public Image getSprite() {
-		return null;
+		return this.sprite;
 	}
 
 	public void registerWorld(IWorld y) {

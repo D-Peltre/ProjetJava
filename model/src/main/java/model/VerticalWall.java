@@ -6,7 +6,6 @@ import javax.imageio.ImageIO;
 
 public class VerticalWall extends Affichable{
 	String typeObject="|";
-	Image sprite;
 	public VerticalWall(int x, int y){
 		super(x,y);
 		try {
@@ -15,4 +14,8 @@ public class VerticalWall extends Affichable{
 			e.printStackTrace();
 		}
 	}
+	public String get_type(){
+		return "|";
+	}
+
 }

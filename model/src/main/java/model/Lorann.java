@@ -11,8 +11,6 @@ import contract.PossibleMove;
 import javax.imageio.ImageIO;
 
 public class Lorann extends Affichable{
-	String typeObject="L";
-	Image actualSprite;
 	HashMap <PossibleMove,Image>  hm = new HashMap<PossibleMove, Image>();
 	PossibleMove possibleMove=PossibleMove.NONE; 
 	PossibleMove lastMove=PossibleMove.DOWN; 
@@ -112,46 +110,50 @@ public class Lorann extends Affichable{
 	
 	public void moveDown(){
 		this.checkCollisions(x,y+1);
-		this.actualSprite = hm.get(PossibleMove.DOWN);
+		this.sprite = hm.get(PossibleMove.DOWN);
 	}
 	
 	public void moveDownLeft(){
 		this.checkCollisions(x-1,y+1);
-		this.actualSprite = hm.get(PossibleMove.DOWNLEFT);
+		this.sprite = hm.get(PossibleMove.DOWNLEFT);
 	}
 	
 	public void moveDownRight(){
 		this.checkCollisions(x+1,y+1);
-		this.actualSprite = hm.get(PossibleMove.DOWNRIGHT);
+		this.sprite = hm.get(PossibleMove.DOWNRIGHT);
 	}
 	
 	public void moveLeft(){
 		this.checkCollisions(x-1,y);
-		this.actualSprite = hm.get(PossibleMove.LEFT);
+		this.sprite = hm.get(PossibleMove.LEFT);
 	}
 	
 	public void moveRight(){
 		this.checkCollisions(x+1,y);
-		this.actualSprite = hm.get(PossibleMove.RIGHT);
+		this.sprite = hm.get(PossibleMove.RIGHT);
 	}
 	
 	public void moveUp(){
 		this.checkCollisions(x,y-1);
-		this.actualSprite = hm.get(PossibleMove.UP);
+		this.sprite = hm.get(PossibleMove.UP);
 	}
 	
 	public void moveUpLeft(){
 		this.checkCollisions(x-1,y-1);
-		this.actualSprite = hm.get(PossibleMove.UPLEFT);
+		this.sprite = hm.get(PossibleMove.UPLEFT);
 	}
 	
 	public void moveUpRight(){
 		this.checkCollisions(x+1,y-1);
-		this.actualSprite = hm.get(PossibleMove.UPRIGHT);
+		this.sprite = hm.get(PossibleMove.UPRIGHT);
 	}
 	
 	public void fire(){
 		Spell spell = new Spell(this.getX(), this.getY());
 		this.world.add(spell);
 	}
+	public String get_type(){
+		return "L";
+	}
+
 }

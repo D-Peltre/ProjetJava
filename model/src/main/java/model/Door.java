@@ -5,8 +5,6 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class Door extends Affichable{
-	String typeObject="{";
-	Image sprite;
 	public Door(int x, int y) {
 		super(x,y);
 		try {
@@ -15,5 +13,9 @@ public class Door extends Affichable{
 			e.printStackTrace();
 		}
 	}
+	public String get_type(){
+		return "{";
+	}
+
 
 }

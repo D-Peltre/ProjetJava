@@ -8,8 +8,6 @@ import javax.imageio.ImageIO;
 import contract.IAffichable;
 
 public class Daemon extends Affichable{
-	String typeObject="d";
-	Image sprite;
 	public Daemon(int x, int y) {
 		super(x,y);
 		try {
@@ -32,6 +30,10 @@ public class Daemon extends Affichable{
 			e.printStackTrace();
 		}
 	}
+	public String get_type(){
+		return "d";
+	}
+
 	
 	public void move(){
 		x=this.world.get_lorann().getX();
