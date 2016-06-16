@@ -83,6 +83,22 @@ public class Lorann extends Affichable{
 		if(collision.get_type()=="d"){
 			//die
 		    }
+		if(collision.get_type()=="}"){
+			//if open if(){
+				//win
+			   // }
+			//else{
+				//die
+			//    }
+		    }
+		if(collision.get_type()=="$"){
+			//increase score
+		    }
+		if(collision.get_type()=="*" || collision.get_type()=="S"){
+			//increase energie
+			//rem. boule d'energie
+		    }
+		
 		return true;
         }
 	
