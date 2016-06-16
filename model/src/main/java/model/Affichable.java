@@ -1,6 +1,7 @@
 package model;
 
 public abstract class Affichable {
+	String typeObject=" ";
 	int x, y = 0 ;
 	World world;
 	Affichable(int x, int y){

@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class DiagonalWall extends Affichable{
+	String typeObject="o";
 	Image sprite;
 	public DiagonalWall(int x, int y){
 		super(x,y);

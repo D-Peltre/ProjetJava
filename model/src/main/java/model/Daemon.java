@@ -6,6 +6,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class Daemon extends Affichable{
+	String typeObject="d";
 	Image sprite;
 	public Daemon(int x, int y) {
 		super(x,y);

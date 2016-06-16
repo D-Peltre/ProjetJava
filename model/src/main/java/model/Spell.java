@@ -7,6 +7,7 @@ import javax.imageio.ImageIO;
 
 public class Spell extends Affichable{
 	ArrayList <Image> sprites;
+	String typeObject="S";
 	public Spell(int x, int y){
 		super(x,y);
 		try {

@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class Gold extends Affichable{
+	String typeObject="$";
 	Image sprite;
 	public Gold(int x, int y){
 		super(x,y);

@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class EnergyBall extends Affichable{
+	String typeObject="*";
 	Image sprite;
 	public EnergyBall(int x, int y){
 		super(x,y);

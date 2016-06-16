@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class Door extends Affichable{
+	String typeObject="{";
 	Image sprite;
 	public Door(int x, int y) {
 		super(x,y);

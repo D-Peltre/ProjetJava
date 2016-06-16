@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class HorizontalWall extends Affichable{
+	String typeObject="-";
 	Image sprite;
 	public HorizontalWall(int x, int y){
 		super(x,y);
