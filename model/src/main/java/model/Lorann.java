@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.HashMap;
 
 import contract.IAffichable;
+import contract.IWorld;
 import contract.PossibleMove;
 
 import javax.imageio.ImageIO;
@@ -17,7 +18,6 @@ public class Lorann extends Affichable{
 	
 	public Lorann(int x, int y) {
 		super(x,y);
-		this.world.set_lorann(this);
 		try {
 			this.hm.put(PossibleMove.LEFT , ImageIO.read(new File("/home/yvar/thomb/lorann/lorann_l.png")));
 			this.hm.put(PossibleMove.DOWN , ImageIO.read(new File("/home/yvar/thomb/lorann/lorann_d.png")));
@@ -71,7 +71,12 @@ public class Lorann extends Affichable{
 		break;
 	}
 	}
-	
+
+    @Override
+	public void registerWorld(IWorld y) {
+		this.world=(model.World) y;
+		this.world.set_lorann(this);
+	}
 	public boolean checkCollisions(int x, int y){
 		IAffichable collision=this.world.get_collision(x, y);
 		if(collision==null){
