@@ -1,0 +1,117 @@
+
+package model;
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
+import contract.PossibleMove;
+
+import javax.imageio.ImageIO;
+
+public class Lorann extends Affichable{
+	String typeObject="L";
+	Image actualSprite;
+	HashMap <PossibleMove,Image>  hm = new HashMap<PossibleMove, Image>();
+	
+	public Lorann(int x, int y) {
+		super(x,y);
+		try {
+			this.hm.put(PossibleMove.LEFT , ImageIO.read(new File("Sprite/lorann_l.png")));
+			this.hm.put(PossibleMove.DOWN , ImageIO.read(new File("Sprite/lorann_d.png")));
+			this.hm.put(PossibleMove.DOWNLEFT , ImageIO.read(new File("Sprite/lorann_dl.png")));
+			this.hm.put(PossibleMove.DOWNRIGHT , ImageIO.read(new File("Sprite/lorann_dr.png")));
+			this.hm.put(PossibleMove.RIGHT , ImageIO.read(new File("Sprite/lorann_r.png")));
+			this.hm.put(PossibleMove.UP , ImageIO.read(new File("Sprite/lorann_u.png")));
+			this.hm.put(PossibleMove.UPLEFT , ImageIO.read(new File("Sprite/lorann_ul.png")));
+			this.hm.put(PossibleMove.UPRIGHT , ImageIO.read(new File("Sprite/lorann_ur.png")));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void move(PossibleMove possibleMove){
+		switch(possibleMove){
+		case LEFT:
+			this.moveLeft();
+			break;
+		case RIGHT:
+			this.moveRight();
+			break;
+		case UP:
+			this.moveUp();
+			break;
+		case DOWN:
+			this.moveDown();
+			break;
+		case UPRIGHT:
+			this.moveUpRight();
+			break;
+		case UPLEFT:
+			this.moveLeft();
+			break;
+		case DOWNRIGHT:
+			this.moveDownRight();
+			break;
+		case DOWNLEFT:
+			this.moveDownLeft();
+			break;
+		case FIRE:
+			this.fire();
+	default:
+		break;
+	}
+	}
+	
+	public boolean checkCollisions(int x, int y){
+		if(this.world.get_collision(x, y)==null){
+		    this.x=x;
+		    this.y=y;
+		    return true;
+		    }
+		return false;
+        }
+	
+	public void moveDown(){
+		this.checkCollisions(x,y+1);
+		this.actualSprite = hm.get(PossibleMove.DOWN);
+	}
+	
+	public void moveDownLeft(){
+		this.checkCollisions(x-1,y+1);
+		this.actualSprite = hm.get(PossibleMove.DOWNLEFT);
+	}
+	
+	public void moveDownRight(){
+		this.checkCollisions(x+1,y+1);
+		this.actualSprite = hm.get(PossibleMove.DOWNRIGHT);
+	}
+	
+	public void moveLeft(){
+		this.checkCollisions(x-1,y);
+		this.actualSprite = hm.get(PossibleMove.LEFT);
+	}
+	
+	public void moveRight(){
+		this.checkCollisions(x+1,y);
+		this.actualSprite = hm.get(PossibleMove.RIGHT);
+	}
+	
+	public void moveUp(){
+		this.checkCollisions(x,y-1);
+		this.actualSprite = hm.get(PossibleMove.UP);
+	}
+	
+	public void moveUpLeft(){
+		this.checkCollisions(x-1,y-1);
+		this.actualSprite = hm.get(PossibleMove.UPLEFT);
+	}
+	
+	public void moveUpRight(){
+		this.checkCollisions(x+1,y-1);
+		this.actualSprite = hm.get(PossibleMove.UPRIGHT);
+	}
+	
+	public void fire(){
+		Spell spell = new Spell(this.getX(), this.getY());
+	}
+}
