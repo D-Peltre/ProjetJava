@@ -33,7 +33,14 @@ public class ViewBuilder{
 	 graphics.fillRect(0, 0, this.viewpanel.getWidth(), this.viewpanel.getHeight());
 	 graphics.setColor(new Color(255,255,255));
 	 for(IAffichable object:this.objects){
-		   graphics.drawImage(object.getSprite(), object.getX()*32, object.getY()*32, 8,8, viewpanel);
+		   System.out.print("X:");
+		   System.out.print(object.getX());
+		   System.out.print(" Y:");
+		   System.out.print(object.getY());
+		   System.out.print(" TypeObject:'");
+		   System.out.print(object.get_type());
+		   System.out.println("'");
+		   graphics.drawImage(object.getSprite(), object.getX()*32, object.getY()*32, viewpanel);
 		   }
 	 graphics.drawString("Score: 15", 10, this.viewpanel.getHeight()-8);
 	 }
