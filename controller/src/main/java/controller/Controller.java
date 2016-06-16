@@ -1,6 +1,8 @@
 package controller;
 
 
+import java.util.ArrayList;
+
 import contract.IAffichable;
 import contract.IController;
 import contract.IModelManager;
@@ -28,7 +30,7 @@ public class Controller implements IController{
 		this.model.move(possibleMove);
 	}
 	
-	public void refresh(IAffichable[] objects){
+	public void refresh(ArrayList <IAffichable> objects){
 		this.view.send_objects(objects);
 	}
 	

@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Graphics;
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -61,7 +62,7 @@ class ViewPanel extends JPanel implements Observer {
 		this.repaint();
 	}
 	
-	public void send(IAffichable[] objects){
+	public void send(ArrayList <IAffichable> objects){
 		this.viewbuilder.update(objects);
 	    }
 

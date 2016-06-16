@@ -58,7 +58,7 @@ public class World implements IWorld{
 	    return null;
 	    }
 
-	public IAffichable[] get_objects() {
-		return (IAffichable[]) this.al.toArray();
+	public ArrayList <IAffichable> get_objects() {
+		return this.al;
 	}
 }

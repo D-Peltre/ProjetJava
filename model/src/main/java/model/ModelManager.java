@@ -2,6 +2,7 @@ package model;
 
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Observable;
 
 import contract.IAffichable;
@@ -25,7 +26,7 @@ public class ModelManager extends Observable implements IModelManager{
 		this.world.get_lorann().move(possibleMove);
 		
 	}
-	public IAffichable[] get_objects() {
+	public ArrayList <IAffichable> get_objects() {
 		return this.world.get_objects();
 	}
 	

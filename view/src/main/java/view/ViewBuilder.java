@@ -3,6 +3,8 @@ package view;
 import java.awt.Color;
 
 import java.awt.Graphics;
+import java.util.ArrayList;
+
 import contract.IAffichable;
 
 /****
@@ -17,12 +19,12 @@ L = Lorann
 ****/
 
 public class ViewBuilder{
-   private IAffichable[] objects;
+   private ArrayList <IAffichable> objects;
    private ViewPanel viewpanel;
    public ViewBuilder(ViewPanel viewpanel) {
 	 this.viewpanel=viewpanel;
      }
-   public void update(IAffichable[] object) {	 
+   public void update(ArrayList <IAffichable> object) {	 
 	   this.objects=object;
        }
    public void render(Graphics graphics){

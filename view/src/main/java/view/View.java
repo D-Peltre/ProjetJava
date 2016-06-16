@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 
 import javax.swing.SwingUtilities;
 
@@ -72,7 +73,7 @@ public class View implements IView, Runnable {
 		this.viewFrame.printMessage(message);
 	}
 	
-	public void send_objects(IAffichable[] objects){
+	public void send_objects(ArrayList <IAffichable> objects){
 		this.viewFrame.getViewPanel().send(objects);
 	}
 

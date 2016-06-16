@@ -1,5 +1,7 @@
 package contract;
 
+import java.util.ArrayList;
+
 /**
  * The Interface IView.
  *
@@ -14,5 +16,5 @@ public interface IView {
 	 *          the message
 	 */
 	void printMessage(final String message);
-	void send_objects(IAffichable[] objects);
+	void send_objects(ArrayList <IAffichable> objects);
 }
