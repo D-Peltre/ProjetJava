@@ -22,4 +22,8 @@ public abstract class Affichable {
 	public void move(){
 		
 	}
+	
+	public String get_type(){
+		return this.typeObject;
+	}
 }
