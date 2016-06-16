@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import contract.IAffichable;
+
 
 
 
@@ -12,7 +14,7 @@ public class MapCreator extends DBConnection{
 	
 	String map = "";
 
-	ArrayList <Object> al;
+	ArrayList<IAffichable> al;
 	public MapCreator() throws SQLException{
 		String idMap = "1";
 		String sql = "{call getMap(?)}";
@@ -26,7 +28,7 @@ public class MapCreator extends DBConnection{
 	
 	public void createObjects(){
 		//read the map and create object corresponding, stock all of them in al
-		ArrayList <Object> al = new ArrayList<Object>();
+		ArrayList <IAffichable> al = new ArrayList<IAffichable>();
 		int nbChar = map.length();
 		int y = 0;
 		for(int x = 0;x!=nbChar; x++){
@@ -55,7 +57,7 @@ public class MapCreator extends DBConnection{
 		}
 		this.al = al;
 	}
-	public ArrayList<Object> getObjects(){
+	public ArrayList<IAffichable> getObjects(){
 		return this.al;
 	}
 	public String getMap(){

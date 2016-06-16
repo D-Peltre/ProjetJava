@@ -1,12 +1,12 @@
 package model;
 
-import contract.IModel;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Observable;
 
-public abstract class ModelManager extends Observable implements IModel{
+import contract.IModelManager;
+
+public abstract class ModelManager extends Observable implements IModelManager{
 	
 	public ModelManager(){
 		MapCreator myMap = null;

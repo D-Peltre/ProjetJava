@@ -6,7 +6,7 @@ import javax.swing.SwingUtilities;
 
 import contract.IAffichable;
 import contract.IController;
-import contract.IModel;
+import contract.IModelManager;
 import contract.IView;
 import contract.PossibleMove;
 
@@ -26,7 +26,7 @@ public class View implements IView, Runnable {
 	 * @param model
 	 *          the model
 	 */
-	public View(final IModel model) {
+	public View(final IModelManager model) {
 		this.viewFrame = new ViewFrame(model);
 		SwingUtilities.invokeLater(this);
 	}

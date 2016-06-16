@@ -30,7 +30,7 @@ class ViewPanel extends JPanel implements Observer {
 	public ViewPanel(final ViewFrame viewFrame) {
 		this.setViewFrame(viewFrame);
 		this.viewbuilder=new ViewBuilder(this);
-		viewFrame.getModel().getObservable().addObserver(this);
+		//viewFrame.getModel().getObservable().addObserver(this);
 	}
 
 	/**
