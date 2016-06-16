@@ -11,9 +11,12 @@ import contract.IAffichable;
 
 public class World {
 ArrayList <IAffichable> al ;
-	World y=this;
-	public World(ArrayList <Object> al){
+	public World(ArrayList <IAffichable> al){
+		World y=this;
 		this.al = al;
+		for(IAffichable element:this.al){
+			element.registerWorld(y);
+		   }
 		ActionListener taskPerformer = new ActionListener(){
 			public void actionPerformed(ActionEvent ae) {
 				

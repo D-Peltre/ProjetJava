@@ -32,7 +32,7 @@ public class View implements IView, Runnable {
 	}
 
 	/**
-	 * Key code to controller order.
+	 * This function maps a given key code to a controller order.
 	 *
 	 * @param keyCode
 	 *          the key code
