@@ -1,10 +1,13 @@
 package controller;
 
+import java.util.ArrayList;
+
 import contract.IAffichable;
+import contract.IController;
 import contract.IView;
 import contract.PossibleMove;
 
-public class Controller {
+public class Controller implements IController{
 	private IView view;
 	private IAffichable model;
 	
@@ -47,9 +50,15 @@ public class Controller {
 			case DOWNLEFT:
 				this.model.moveDownLeft();
 				break;
+			case FIRE:
+				this.model.fire();
 		default:
 			break;
 		}
+	}
+	
+	public void refresh(IAffichable[] objects){
+		this.view.send_objects(objects);
 	}
 
 }
