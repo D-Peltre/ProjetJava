@@ -29,5 +29,12 @@ ArrayList <IAffichable> al ;
 		}
 		
 	}
-	
+	public IAffichable get_collision(int x, int y){
+		for(IAffichable element:al){
+			if(element.getX()==x && element.getY()==y){
+			   return element;
+			   }
+		    }
+	    return null;
+	    }
 }
