@@ -47,9 +47,10 @@ public class MapCreator extends DBConnection{
 					break;
 				case 'L' : al.add(new Lorann(x,y));
 					break;
-				case '\n' : y = y++;
+				case '\n' : y = y++; x = 0;
 					break;
-				default :
+				case 'X' : x = nbChar; break; 
+				default : 
 					break;
 			}
 		}
