@@ -26,6 +26,7 @@ public class MapCreator extends DBConnection{
 		resultSet.next();
 		this.map = resultSet.getString(1);
 		// Recupere le string de la bdd
+		System.out.print(this.map);
 		resultSet.close();
 	}
 		
@@ -36,6 +37,7 @@ public class MapCreator extends DBConnection{
 		int nbChar = map.length();
 		int y = 0;
 		for(int x = 0;x!=nbChar; x++){
+			System.out.print(map.charAt(x));
 			switch(map.charAt(x)){
 				case '-' : al.add(new HorizontalWall(x, y));
 					break;

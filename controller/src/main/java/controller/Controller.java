@@ -1,6 +1,5 @@
 package controller;
 
-import java.util.ArrayList;
 
 import contract.IAffichable;
 import contract.IController;
@@ -34,9 +33,9 @@ public class Controller implements IController{
 	}
 	
 	public void control(){
-		while(true){
+		//while(true){
 			this.refresh(this.model.get_objects());
-		}
+		//}
 	    }
 
 }
