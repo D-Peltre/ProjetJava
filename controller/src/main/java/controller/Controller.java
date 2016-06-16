@@ -4,14 +4,15 @@ import java.util.ArrayList;
 
 import contract.IAffichable;
 import contract.IController;
+import contract.IModelManager;
 import contract.IView;
 import contract.PossibleMove;
 
 public class Controller implements IController{
 	private IView view;
-	private IAffichable model;
+	private IModelManager model;
 	
-	public Controller(final IView view, final IAffichable model) {
+	public Controller(final IView view, final IModelManager model) {
 		this.setView(view);
 		this.setModel(model);
 	}
@@ -20,7 +21,7 @@ public class Controller implements IController{
 		this.view = view;
 	}
 	
-	private void setModel(final IAffichable model) {
+	private void setModel(final IModelManager model) {
 		this.model = model;
 	}
 	
