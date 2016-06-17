@@ -116,13 +116,13 @@ public class Lorann extends Affichable{
 			this.world.remove(collision);
 		    }
 		if(collision.get_type()=="*"){
-			//rem. spell
-			this.world.remove(collision);
-		    }
-		if(collision.get_type()=="S"){
 			//increase energie
 			this.energie=true;
 			//rem. energy
+			this.world.remove(collision);
+		    }
+		if(collision.get_type()=="S"){
+			//rem. spell
 			this.world.remove(collision);
 		    }
 		
