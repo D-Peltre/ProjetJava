@@ -14,6 +14,7 @@ public class Lorann extends Affichable{
 	HashMap <PossibleMove,Image>  hm = new HashMap<PossibleMove, Image>();
 	PossibleMove possibleMove=PossibleMove.NONE; 
 	PossibleMove lastMove=PossibleMove.DOWN; 
+	boolean energie=false;
 	
 	public Lorann(int x, int y) {
 		super(x,y);
@@ -114,9 +115,14 @@ public class Lorann extends Affichable{
 			//rem. bourse
 			this.world.remove(collision);
 		    }
-		if(collision.get_type()=="*" || collision.get_type()=="S"){
+		if(collision.get_type()=="*"){
+			//rem. spell
+			this.world.remove(collision);
+		    }
+		if(collision.get_type()=="S"){
 			//increase energie
-			//rem. boule d'energie/spell
+			this.energie=true;
+			//rem. energy
 			this.world.remove(collision);
 		    }
 		
@@ -168,7 +174,7 @@ public class Lorann extends Affichable{
 	}
 
 	public boolean has_energy() {
-		return false;
+		return this.energie;
 	}
 
 }
