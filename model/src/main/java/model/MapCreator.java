@@ -38,7 +38,7 @@ public class MapCreator extends DBConnection{
 		int x=0;
 		/// i est l'indice du pointeur vers le map. X et Y sont les coordonnées du nouvel object a créer
 		for(int i = 0;i<nbChar; i++){
-			System.out.print(map.charAt(x));
+			// Test value of char, and create object corresponding with its coordinates
 			switch(map.charAt(i)){
 				case '-' : al.add(new HorizontalWall(x, y));
 					break;
@@ -56,7 +56,7 @@ public class MapCreator extends DBConnection{
 					break;
 				case 'L' : al.add(new Lorann(x,y));
 					break;
-					// on incrémente y, et on retourne x a la ligne
+					// when reaching end of line, set coordinate X at -1 (not 0 because of the x+=1) and coordinate Y at Y+1
 				case 'R' : y+=1; x = -1;
 					break;
 				case 'X' : x = nbChar; break; 
@@ -65,11 +65,14 @@ public class MapCreator extends DBConnection{
 			}
 			x+=1;
 		}
+		// Store local al in the object al
 		this.al = al;
 	}
+	// get the list of all objects
 	public ArrayList<IAffichable> getObjects(){
 		return this.al;
 	}
+	// get the string of the map
 	public String getMap(){
 		return this.map;
 	}
