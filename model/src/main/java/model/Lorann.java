@@ -19,14 +19,14 @@ public class Lorann extends Affichable{
 	public Lorann(int x, int y) {
 		super(x,y);
 		try {
-			this.hm.put(PossibleMove.LEFT , ImageIO.read(new File("/home/yvar/thomb/lorann/lorann_l.png")));
-			this.hm.put(PossibleMove.DOWN , ImageIO.read(new File("/home/yvar/thomb/lorann/lorann_d.png")));
-			this.hm.put(PossibleMove.DOWNLEFT , ImageIO.read(new File("/home/yvar/thomb/lorann/lorann_dl.png")));
-			this.hm.put(PossibleMove.DOWNRIGHT , ImageIO.read(new File("/home/yvar/thomb/lorann/lorann_dr.png")));
-			this.hm.put(PossibleMove.RIGHT , ImageIO.read(new File("/home/yvar/thomb/lorann/lorann_r.png")));
-			this.hm.put(PossibleMove.UP , ImageIO.read(new File("/home/yvar/thomb/lorann/lorann_u.png")));
-			this.hm.put(PossibleMove.UPLEFT , ImageIO.read(new File("/home/yvar/thomb/lorann/lorann_ul.png")));
-			this.hm.put(PossibleMove.UPRIGHT , ImageIO.read(new File("/home/yvar/thomb/lorann/lorann_ur.png")));
+			this.hm.put(PossibleMove.LEFT , ImageIO.read(new File("main/java/Sprite/lorann_l.png")));
+			this.hm.put(PossibleMove.DOWN , ImageIO.read(new File("main/java/Sprite/lorann_d.png")));
+			this.hm.put(PossibleMove.DOWNLEFT , ImageIO.read(new File("main/java/Sprite/lorann_dl.png")));
+			this.hm.put(PossibleMove.DOWNRIGHT , ImageIO.read(new File("main/java/Sprite/lorann_dr.png")));
+			this.hm.put(PossibleMove.RIGHT , ImageIO.read(new File("main/java/Sprite/lorann_r.png")));
+			this.hm.put(PossibleMove.UP , ImageIO.read(new File("main/java/Sprite/lorann_u.png")));
+			this.hm.put(PossibleMove.UPLEFT , ImageIO.read(new File("main/java/Sprite/lorann_ul.png")));
+			this.hm.put(PossibleMove.UPRIGHT , ImageIO.read(new File("main/java/Sprite/lorann_ur.png")));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

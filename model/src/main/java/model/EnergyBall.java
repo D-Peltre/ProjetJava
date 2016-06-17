@@ -8,7 +8,7 @@ public class EnergyBall extends Affichable{
 	public EnergyBall(int x, int y){
 		super(x,y);
 		try {
-			this.sprite = ImageIO.read(new File("/home/yvar/thomb/lorann/crystal_ball.png"));
+			this.sprite = ImageIO.read(new File("main/java/Sprite/crystal_ball.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -8,7 +8,7 @@ public class Gold extends Affichable{
 	public Gold(int x, int y){
 		super(x,y);
 		try {
-			this.sprite = ImageIO.read(new File("/home/yvar/thomb/lorann/purse.png"));
+			this.sprite = ImageIO.read(new File("main/java/Sprite/purse.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -8,7 +8,7 @@ public class Door extends Affichable{
 	public Door(int x, int y) {
 		super(x,y);
 		try {
-			this.sprite = ImageIO.read(new File("/home/yvar/thomb/lorann/gate_closed.png"));
+			this.sprite = ImageIO.read(new File("main/java/Sprite/gate_closed.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
