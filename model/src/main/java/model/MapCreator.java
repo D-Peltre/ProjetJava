@@ -16,7 +16,8 @@ public class MapCreator extends DBConnection{
 
 	ArrayList<IAffichable> al;
 	
-	public MapCreator() throws SQLException{
+	public MapCreator() {
+		try{
 		String idMap = "1";
 		String sql = "{call getMap(?)}";
 		CallableStatement call = connection.prepareCall(sql);
@@ -27,6 +28,9 @@ public class MapCreator extends DBConnection{
 		this.map = resultSet.getString(1);
 		// Recupere le string de la bdd
 		resultSet.close();
+		}catch(SQLException e){
+			System.out.println("Could not connect to the database");
+		}
 	}
 		
 	

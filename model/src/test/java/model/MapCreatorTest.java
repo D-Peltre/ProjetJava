@@ -1,39 +1,50 @@
 package model;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Assert;
+
+import static org.junit.Assert.*;
+
+import java.sql.SQLException;
+
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.experimental.theories.Theories;
 
 public class MapCreatorTest {
-	private MapCreator mapCreator;
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
 
-	/**
-	 * Tear down after class.
-	 *
-	 * @throws Exception
-	 *           the exception
-	 */
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
 
-	/**
-	 * Sets the up.
-	 *
-	 * @throws Exception
-	 *           the exception
-	 */
 	@Before
 	public void setUp() throws Exception {
-		this.mapCreator = new MapCreator();
+		
 	}
+
 	@Test
-	public void testMap() {
-		//Assert.assertEquals("o--------------o-{-o\n|L o o        $|  d|\n| o o   |      |   |\n|o o----o----o o-o |\n| o| *  |$    d  | |\n|o |    | o----o | |\n|  |  d |       d| |\n|  |    o------- | |\n|  |             | |\n|  o-------------o |\n|          $       |\no------------------o",); 
+	public void testConnection()  {
+		MapCreator mp = null;
+		mp = new MapCreator();
+		}
+	
+	
+		
+	@Test
+	public void testMap(){
+		MapCreator mp = null;
+		mp = new MapCreator();
+		assertEquals(mp.map, "o--------------o-{-oR|L o o        $|  d|R| o o   |      |   |R|o o----o----o o-o |R| o| *  |$    d  | |R|o |    | o----o | |R|  |  d |       d| |R|  |    o------- | |R|  |             | |R|  o-------------o |R|          $       |Ro------------------oX");
 	}
+
+//	@Test
+//	public void testCreateObjects() {
+//		fail("Not yet implemented");
+//	}
+
+//	@Test
+//	public void testGetObjects() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testGetMap() {
+//		fail("Not yet implemented");
+//	}
+//
 }
