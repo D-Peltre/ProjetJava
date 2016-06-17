@@ -35,9 +35,9 @@ public class Controller implements IController{
 	}
 	
 	public void control(){
-		//while(true){
+		while(true){
 		this.refresh(this.model.get_objects());
-		//}
+		}
 	    }
 
 }
