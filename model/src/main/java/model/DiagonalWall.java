@@ -19,5 +19,6 @@ public class DiagonalWall extends Affichable{
 	public String get_type(){
 		return "o";
 	}
+	public void move(){}
 
 }

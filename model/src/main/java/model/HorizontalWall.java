@@ -16,5 +16,5 @@ public class HorizontalWall extends Affichable{
 	public String get_type(){
 		return "-";
 	}
-
+	public void move(){}
 }

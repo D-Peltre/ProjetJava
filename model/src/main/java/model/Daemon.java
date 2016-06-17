@@ -39,12 +39,11 @@ public class Daemon extends Affichable{
 		return "d";
 	}
 
-	
 	public void move(){
-		x=this.world.get_lorann().getX();
-		y=this.world.get_lorann().getY();
-		int deltaX=this.x-x;
-		int deltaY=this.y-y;
+		int xlorann=this.world.get_lorann().getX();
+		int ylorann=this.world.get_lorann().getY();
+		int deltaX=this.x-xlorann;
+		int deltaY=this.y-ylorann;
 		if(Math.abs(deltaX)>Math.abs(deltaY)){  //if the player is futher away horizontally than vertically
 			if(deltaX<0){
 				this.checkCollisions(this.x-1, this.y);

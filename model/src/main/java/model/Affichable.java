@@ -8,7 +8,7 @@ import contract.IWorld;
 public abstract class Affichable implements IAffichable{
 	int x, y = 0 ;
 	World world;
-	protected Image sprite;
+	Image sprite;
 	Affichable(int x, int y){
 		this.x = x;
 		this.y = y;
@@ -19,9 +19,6 @@ public abstract class Affichable implements IAffichable{
 	}
 	public int getY(){
 		return this.y;
-	}
-	public void move(){
-		
 	}
 	
 	public String get_type(){

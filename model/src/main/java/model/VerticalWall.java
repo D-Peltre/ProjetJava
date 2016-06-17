@@ -14,6 +14,7 @@ public class VerticalWall extends Affichable{
 			e.printStackTrace();
 		}
 	}
+	public void move(){}
 	public String get_type(){
 		return "|";
 	}

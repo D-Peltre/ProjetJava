@@ -16,5 +16,5 @@ public class EnergyBall extends Affichable{
 	public String get_type(){
 		return "*";
 	}
-
+	public void move(){}
 }

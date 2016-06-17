@@ -1,7 +1,6 @@
 
 package model;
 import java.awt.Image;
-import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -21,13 +20,14 @@ public class Lorann extends Affichable{
 		try {
 			this.hm.put(PossibleMove.LEFT , ImageIO.read(this.getClass().getResourceAsStream("/Sprite/lorann_l.png")));
 			this.hm.put(PossibleMove.DOWN , ImageIO.read(this.getClass().getResourceAsStream("/Sprite/lorann_d.png")));
+			this.hm.put(PossibleMove.NONE , ImageIO.read(this.getClass().getResourceAsStream("/Sprite/lorann_d.png")));
 			this.hm.put(PossibleMove.DOWNLEFT , ImageIO.read(this.getClass().getResourceAsStream("/Sprite/lorann_dl.png")));
 			this.hm.put(PossibleMove.DOWNRIGHT , ImageIO.read(this.getClass().getResourceAsStream("/Sprite/lorann_dr.png")));
 			this.hm.put(PossibleMove.RIGHT , ImageIO.read(this.getClass().getResourceAsStream("/Sprite/lorann_r.png")));
 			this.hm.put(PossibleMove.UP , ImageIO.read(this.getClass().getResourceAsStream("/Sprite/lorann_u.png")));
 			this.hm.put(PossibleMove.UPLEFT , ImageIO.read(this.getClass().getResourceAsStream("/Sprite/lorann_ul.png")));
 			this.hm.put(PossibleMove.UPRIGHT , ImageIO.read(this.getClass().getResourceAsStream("/Sprite/lorann_ur.png")));
-            this.sprite=this.hm.get(PossibleMove.DOWN);
+            //this.sprite=this.hm.get(PossibleMove.DOWN);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -36,14 +36,19 @@ public class Lorann extends Affichable{
 	public void move(PossibleMove possibleMove){
 		this.possibleMove=possibleMove;
 		this.sprite = hm.get(possibleMove);
-		System.out.println(possibleMove);
 		if(possibleMove!=PossibleMove.NONE){
 			this.lastMove=possibleMove;
 		    }
 	    }
 
+	@Override
+	public Image getSprite() {
+		System.out.println(this.possibleMove);
+		return hm.get(this.possibleMove);
+	}
+
 	public void move(){
-		this.sprite = hm.get(possibleMove);
+		sprite = hm.get(this.possibleMove);
 		
 		switch(this.possibleMove){
 		case LEFT:
