@@ -8,7 +8,7 @@ public class HorizontalWall extends Affichable{
 	public HorizontalWall(int x, int y){
 		super(x,y);
 		try {
-			this.sprite = ImageIO.read(new File("main/java/Sprite/horizontal_bone.png"));
+			this.sprite = ImageIO.read(new File("main/java/Sprite/horizontal_bone.png"));//marche pas
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
