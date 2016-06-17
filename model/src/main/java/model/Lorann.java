@@ -35,7 +35,6 @@ public class Lorann extends Affichable{
 	
 	public void move(PossibleMove possibleMove){
 		this.possibleMove=possibleMove;
-		this.sprite = hm.get(possibleMove);
 		if(possibleMove!=PossibleMove.NONE){
 			this.lastMove=possibleMove;
 		    }
@@ -48,7 +47,6 @@ public class Lorann extends Affichable{
 	}
 
 	public void move(){
-		sprite = hm.get(this.possibleMove);
 		
 		switch(this.possibleMove){
 		case LEFT:
