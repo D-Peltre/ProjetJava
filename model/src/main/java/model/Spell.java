@@ -20,10 +20,10 @@ public class Spell extends Affichable {
 	public Spell(int x, int y) {
 		super(x, y);
 		try {
-			sprites.add(ImageIO.read(new File("main/java/Sprite/fireball_1.png")));
-			sprites.add(ImageIO.read(new File("main/java/Sprite/fireball_2.png")));
-			sprites.add(ImageIO.read(new File("main/java/Sprite/fireball_3.png")));
-			sprites.add(ImageIO.read(new File("main/java/Sprite/fireball_4.png")));
+			sprites.add(ImageIO.read(this.getClass().getResourceAsStream("/Sprite/fireball_1.png")));
+			sprites.add(ImageIO.read(this.getClass().getResourceAsStream("/Sprite/fireball_2.png")));
+			sprites.add(ImageIO.read(this.getClass().getResourceAsStream("/Sprite/fireball_3.png")));
+			sprites.add(ImageIO.read(this.getClass().getResourceAsStream("/Sprite/fireball_4.png")));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
