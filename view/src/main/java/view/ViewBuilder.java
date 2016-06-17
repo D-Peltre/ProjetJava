@@ -26,7 +26,7 @@ public class ViewBuilder{
      }
    public void update(ArrayList <IAffichable> object) {	 
 	   this.objects=object;
-	   //System.out.println(objects.size());
+	   this.viewpanel.repaint();
        }
    public void render(Graphics graphics){
 	 graphics.clearRect(0, 0, this.viewpanel.getWidth(), this.viewpanel.getHeight());
