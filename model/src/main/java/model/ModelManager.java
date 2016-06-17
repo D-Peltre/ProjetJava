@@ -13,11 +13,7 @@ public class ModelManager extends Observable implements IModelManager{
 	World world;
 	public ModelManager(){
 		MapCreator myMap = null;
-		try {
-			myMap = new MapCreator();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		myMap = new MapCreator();
 		myMap.createObjects();
 		this.world = new World(myMap.getObjects());
 		
