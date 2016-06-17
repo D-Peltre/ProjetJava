@@ -155,8 +155,8 @@ public class Lorann extends Affichable{
 	}
 	
 	public void fire(){
-		Spell spell = new Spell(this.getX(), this.getY());
-		this.world.add(spell);
+		
+		this.world.fire_spell(this.x, this.y, this.lastMove);;
 	}
 	public String get_type(){
 		return "L";

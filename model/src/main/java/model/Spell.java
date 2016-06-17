@@ -37,9 +37,15 @@ public class Spell extends Affichable {
 		this.rebondi.put(PossibleMove.UPLEFT, PossibleMove.DOWNRIGHT);
 		this.rebondi.put(PossibleMove.UPRIGHT, PossibleMove.DOWNLEFT);
 		
-		this.direction = this.world.get_lorann().getLastMove();
 
 	}
+	
+	public void fire(int x, int y, PossibleMove direction){
+		this.direction = direction;
+		this.x=x;
+		this.y=y;
+		this.set_hidden(false);
+	    }
 
 	public void move() {
 		this.sprite=this.sprites.get(3);

@@ -8,13 +8,21 @@ import javax.swing.Timer;
 
 import contract.IAffichable;
 import contract.IWorld;
+import contract.PossibleMove;
 
 public class World implements IWorld{
     private ArrayList <IAffichable> al ;
     private Lorann lorann;
+	private Spell spell;
 	public World(ArrayList <IAffichable> al){
 		final World y=this;
 		this.al = al;
+		
+		Spell spell = new Spell(0, 0);
+		spell.set_hidden(true);
+		this.al.add(spell);
+		this.spell=spell;
+		
 		for(IAffichable element:this.al){
 			element.registerWorld(y);
 		   }
@@ -49,9 +57,12 @@ public class World implements IWorld{
 	public void play(){
 		for(IAffichable element:al){
 			element.move();
-		}
+		    }
+	    }
 		
-	}
+    public void fire_spell(int x, int y, PossibleMove direction){
+		    	this.spell.fire(x,y, direction);
+                }
 	public IAffichable get_collision(int x, int y){
 		for(IAffichable element:al){
 			if(element.getX()==x && element.getY()==y && element.get_hidden()==false){
