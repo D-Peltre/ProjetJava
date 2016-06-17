@@ -42,11 +42,12 @@ public class Lorann extends Affichable{
 
 	@Override
 	public Image getSprite() {
-		System.out.println(this.possibleMove);
+		//System.out.println(this.possibleMove);
 		return hm.get(this.possibleMove);
 	}
 
 	public void move(){
+		System.out.println(this.possibleMove);
 		
 		switch(this.possibleMove){
 		case LEFT:
@@ -84,15 +85,16 @@ public class Lorann extends Affichable{
 		this.world=(model.World) y;
 		this.world.set_lorann(this);
 	}
-	public boolean checkCollisions(int x, int y){
-		IAffichable collision=this.world.get_collision(x, y);
+	public boolean checkCollisions(int xpos, int ypos){
+		IAffichable collision=this.world.get_collision(xpos, ypos);
 		if(collision==null){
-		    this.x=x;
-		    this.y=y;
+		    this.x=xpos;
+		    this.y=ypos;
 		    return false;
 		    }
+		System.out.println(collision.get_type());
 		if(collision.get_type()=="d"){
-			//die
+			System.out.println("Tu t'es fait tué");
 		    }
 		if(collision.get_type()=="}"){
 			//if open if(){
