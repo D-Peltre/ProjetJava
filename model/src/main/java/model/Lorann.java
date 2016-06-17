@@ -47,6 +47,7 @@ public class Lorann extends Affichable{
 	}
 
 	public void move(){
+		System.out.println(this.possibleMove);
 		
 		switch(this.possibleMove){
 		case LEFT:
