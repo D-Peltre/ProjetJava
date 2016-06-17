@@ -44,6 +44,7 @@ public class Lorann extends Affichable{
 
 	public void move(){
 		this.sprite = hm.get(possibleMove);
+		
 		switch(this.possibleMove){
 		case LEFT:
 			this.moveLeft();

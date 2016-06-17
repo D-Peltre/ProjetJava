@@ -60,7 +60,7 @@ public class View implements IView, Runnable {
 		case KeyEvent.VK_NUMPAD9:
 			return PossibleMove.UPRIGHT;
 		default:
-			return null;
+			return PossibleMove.NONE;
 		}
 	}
 
