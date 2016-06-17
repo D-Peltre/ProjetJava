@@ -93,6 +93,9 @@ public class Spell extends Affichable {
 			this.x = x;
 			this.y = y;
 			return false;
+		} else if (collision.get_type()=="d") {
+			collision.set_hidden(true);
+			this.direction = rebondi.get(this.direction);
 		} else {
 			this.direction = rebondi.get(this.direction);
 		}
