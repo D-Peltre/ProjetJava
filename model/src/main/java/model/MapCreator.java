@@ -29,7 +29,7 @@ public class MapCreator extends DBConnection{
 		// Recupere le string de la bdd
 		resultSet.close();
 		}catch(SQLException e){
-			System.out.println("Could not connect to the database");
+			System.out.println("Could not connect to the database, see error below : \n" + e);
 		}
 	}
 		
@@ -79,5 +79,8 @@ public class MapCreator extends DBConnection{
 	// get the string of the map
 	public String getMap(){
 		return this.map;
+	}
+	public void setMap(String map){
+		this.map = map;
 	}
 }
