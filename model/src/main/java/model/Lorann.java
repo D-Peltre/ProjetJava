@@ -85,13 +85,14 @@ public class Lorann extends Affichable{
 		this.world=(model.World) y;
 		this.world.set_lorann(this);
 	}
-	public boolean checkCollisions(int x, int y){
-		IAffichable collision=this.world.get_collision(x, y);
+	public boolean checkCollisions(int xpos, int ypos){
+		IAffichable collision=this.world.get_collision(xpos, ypos);
 		if(collision==null){
-		    this.x=x;
-		    this.y=y;
+		    this.x=xpos;
+		    this.y=ypos;
 		    return false;
 		    }
+		System.out.println(collision.get_type());
 		if(collision.get_type()=="d"){
 			//die
 		    }
