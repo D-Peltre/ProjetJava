@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
+import contract.IAffichable;
+
 public class Door extends Affichable{
 	boolean etat = false; //quand la porte est fermé
 	
@@ -23,6 +25,10 @@ public class Door extends Affichable{
 	public void move(){
 		if(this.world.get_lorann().has_energy()){
 			this.changeDoor();
+		}
+		IAffichable collision=this.world.get_collision(x, y);
+		if(collision.get_type()=="L" && !this.get_hidden()){
+			this.world.gameover();
 		}
 	}
 	

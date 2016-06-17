@@ -69,7 +69,7 @@ public class Daemon extends Affichable{
 		    this.y=y;
 		    return false;
 		    }
-		else if(collision.get_type()=="L"){
+		else if(collision.get_type()=="L" && !this.get_hidden()){
 			this.world.gameover();
 		}
 	    return false;
