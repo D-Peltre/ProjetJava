@@ -127,9 +127,10 @@ public class Lorann extends Affichable{
 		    }
 		if(collision.get_type()=="{"){
 			if(this.energie){
+			    this.world.gameover(false);
 			   }
 			else{
-			   this.world.gameover();
+			   this.world.gameover(true);
 			   }
 		    }
 		

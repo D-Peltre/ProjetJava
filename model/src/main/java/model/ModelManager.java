@@ -26,7 +26,7 @@ public class ModelManager implements IModelManager{
 		return this.world.get_objects();
 	}
 	
-	public boolean getGameover(){
+	public int getGameover(){
 		return this.world.getGameover();
 	}
 	

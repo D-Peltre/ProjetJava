@@ -26,10 +26,6 @@ public class Door extends Affichable{
 		if(this.world.get_lorann().has_energy()){
 			this.changeDoor();
 		}
-		IAffichable collision=this.world.get_collision(x, y);
-		if(collision.get_type()=="L" && !this.get_hidden()){
-			this.world.gameover();
-		}
 	}
 	
 	public boolean getEtat(){

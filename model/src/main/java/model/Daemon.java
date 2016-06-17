@@ -70,7 +70,7 @@ public class Daemon extends Affichable{
 		    return false;
 		    }
 		else if(collision.get_type()=="L" && !this.get_hidden()){
-			this.world.gameover();
+			this.world.gameover(true);
 		}
 	    return false;
         }

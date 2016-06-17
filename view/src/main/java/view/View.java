@@ -41,26 +41,26 @@ public class View implements IView, Runnable {
 	 */
 	protected static PossibleMove keyCodeToControllerOrder(final int keyCode) {
 		switch (keyCode) {
-		case KeyEvent.VK_NUMPAD1:
-			return PossibleMove.DOWNLEFT;
-		case KeyEvent.VK_NUMPAD2:
-			return PossibleMove.DOWN;
-		case KeyEvent.VK_NUMPAD3:
-			return PossibleMove.DOWNRIGHT;
-		case KeyEvent.VK_NUMPAD4:
-			return PossibleMove.LEFT;
-		case KeyEvent.VK_NUMPAD5:
-			return PossibleMove.FIRE;
-		case KeyEvent.VK_NUMPAD6:
-			return PossibleMove.RIGHT;
-		case KeyEvent.VK_NUMPAD7:
-			return PossibleMove.UPLEFT;
-		case KeyEvent.VK_NUMPAD8:
-			return PossibleMove.UP;
-		case KeyEvent.VK_NUMPAD9:
-			return PossibleMove.UPRIGHT;
-		default:
-			return PossibleMove.NONE;
+			case KeyEvent.VK_NUMPAD1:
+				return PossibleMove.DOWNLEFT;
+			case KeyEvent.VK_NUMPAD2:
+				return PossibleMove.DOWN;
+			case KeyEvent.VK_NUMPAD3:
+				return PossibleMove.DOWNRIGHT;
+			case KeyEvent.VK_NUMPAD4:
+				return PossibleMove.LEFT;
+			case KeyEvent.VK_NUMPAD5:
+				return PossibleMove.FIRE;
+			case KeyEvent.VK_NUMPAD6:
+				return PossibleMove.RIGHT;
+			case KeyEvent.VK_NUMPAD7:
+				return PossibleMove.UPLEFT;
+			case KeyEvent.VK_NUMPAD8:
+				return PossibleMove.UP;
+			case KeyEvent.VK_NUMPAD9:
+				return PossibleMove.UPRIGHT;
+			default:
+				return PossibleMove.NONE;
 		}
 	}
 

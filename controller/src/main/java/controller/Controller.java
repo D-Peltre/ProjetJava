@@ -38,14 +38,22 @@ public class Controller implements IController{
 	public void control(){
 		while(true){
 		this.refresh(this.model.get_objects());
-		if(this.model.getGameover()){
+		if(this.model.getGameover()==1){
 			this.gameover();
+		}
+		if(this.model.getGameover()==2){
+			this.win();
 		}
 		}
 	}
 	
 	public void gameover(){
 		this.view.printMessage("GAME OVER !");
+		System.exit(0);
+	}
+	
+	public void win(){
+		this.view.printMessage("You won!");
 		System.exit(0);
 	}
 

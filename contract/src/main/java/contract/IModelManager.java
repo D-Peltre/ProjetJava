@@ -8,7 +8,7 @@ public interface IModelManager {
 
 	public ArrayList <IAffichable> get_objects();
 
-	public boolean getGameover();
+	public int getGameover();
 	
 	
 
