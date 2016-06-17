@@ -97,7 +97,12 @@ public class Lorann extends Affichable{
 			System.out.println("Tu t'es fait tué");
 		    }
 		if(collision.get_type()=="}"){
-			//if open if(){
+			//if ( getEtat() == False){
+				//you die 
+			//}
+			//else {
+				// you win
+			//}
 				//win
 			   // }
 			//else{
