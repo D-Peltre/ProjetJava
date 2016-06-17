@@ -75,4 +75,9 @@ class ViewPanel extends JPanel implements Observer {
 	protected void paintComponent(final Graphics graphics) {
 		this.viewbuilder.render(graphics);
 	}
+
+	public void send_score(int score) {
+		this.viewbuilder.send_score(score);
+		
+	}
 }

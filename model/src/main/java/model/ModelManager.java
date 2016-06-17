@@ -30,6 +30,10 @@ public class ModelManager implements IModelManager{
 		return this.world.getGameover();
 	}
 	
+	public int get_score(){
+		return this.world.get_score();
+	    }
+	
 	
 	
 }

@@ -15,6 +15,7 @@ public class Lorann extends Affichable{
 	PossibleMove possibleMove=PossibleMove.NONE; 
 	PossibleMove lastMove=PossibleMove.DOWN; 
 	boolean energie=false;
+	int score=0;
 	
 	public Lorann(int x, int y) {
 		super(x,y);
@@ -112,6 +113,7 @@ public class Lorann extends Affichable{
 		    }
 		if(collision.get_type()=="$"){
 			//increase score
+			this.score+=1;
 			//rem. bourse
 			this.world.remove(collision);
 		    }
@@ -184,5 +186,9 @@ public class Lorann extends Affichable{
 	public boolean has_energy() {
 		return this.energie;
 	}
+	
+	public int get_score(){
+		return this.score;
+	    }
 
 }

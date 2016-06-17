@@ -44,6 +44,7 @@ public class Controller implements IController{
 		if(this.model.getGameover()==2){
 			this.win();
 		}
+		this.view.send_score(this.model.get_score());
 		}
 	}
 	

@@ -95,4 +95,9 @@ public class View implements IView, Runnable {
 	public void setController(final IController controller) {
 		this.viewFrame.setController(controller);
 	}
+
+	public void send_score(int score) {
+		this.viewFrame.send_score(score);
+		
+	}
 }

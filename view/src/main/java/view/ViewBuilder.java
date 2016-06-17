@@ -21,6 +21,7 @@ L = Lorann
 public class ViewBuilder{
    private ArrayList <IAffichable> objects;
    private ViewPanel viewpanel;
+   private int score=0;
    public ViewBuilder(ViewPanel viewpanel) {
 	 this.viewpanel=viewpanel;
      }
@@ -43,6 +44,9 @@ public class ViewBuilder{
 		   System.out.println("'");*/
 		   graphics.drawImage(object.getSprite(), object.getX()*32, object.getY()*32, viewpanel);
 		   }
-	 graphics.drawString("Score: 15", 10, this.viewpanel.getHeight()-8);
+	 graphics.drawString("Score: "+this.score, 10, this.viewpanel.getHeight()-8);
 	 }
+     public void send_score(int score) {
+	     this.score=score;
+         }
    }

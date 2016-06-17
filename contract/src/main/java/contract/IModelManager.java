@@ -9,6 +9,8 @@ public interface IModelManager {
 	public ArrayList <IAffichable> get_objects();
 
 	public int getGameover();
+
+	public int get_score();
 	
 	
 

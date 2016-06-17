@@ -179,4 +179,9 @@ class ViewFrame extends JFrame implements KeyListener {
 		this.getController().orderDirection(View.keyCodeToControllerOrder(0));
 
 	}
+
+	public void send_score(int score) {
+		this.viewPanel.send_score(score);
+		
+	}
 }

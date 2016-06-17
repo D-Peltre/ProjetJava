@@ -76,6 +76,10 @@ public class World implements IWorld{
 	public ArrayList <IAffichable> get_objects() {
 		return this.al;
 	}
+	
+	public int get_score(){
+		return this.lorann.get_score();
+	    }
 
 
 	public void gameover(boolean meurt){
