@@ -46,18 +46,18 @@ public class Daemon extends Affichable{
 		int deltaY=this.y-ylorann;
 		if(Math.abs(deltaX)>Math.abs(deltaY)){  //if the player is futher away horizontally than vertically
 			if(deltaX<0){
-				this.checkCollisions(this.x-1, this.y);
+				this.checkCollisions(this.x+1, this.y);
 			    }
 			if(deltaX>0){
-				this.checkCollisions(this.x+1, this.y);
+				this.checkCollisions(this.x-1, this.y);
 			    }
 		    }
 		else{
 	    	if(deltaY<0){
-		    	this.checkCollisions(this.x, this.y-1);
+		    	this.checkCollisions(this.x, this.y+1);
 		        }
 		    if(deltaY>0){
-			    this.checkCollisions(this.x, this.y+1);
+			    this.checkCollisions(this.x, this.y-1);
 		        }
 	        }
 	   }

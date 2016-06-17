@@ -42,7 +42,7 @@ public class Lorann extends Affichable{
 
 	@Override
 	public Image getSprite() {
-		System.out.println(this.possibleMove);
+		//System.out.println(this.possibleMove);
 		return hm.get(this.possibleMove);
 	}
 
