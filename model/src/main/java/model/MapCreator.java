@@ -11,7 +11,7 @@ import contract.IAffichable;
 
 
 public class MapCreator extends DBConnection{
-	
+	//Create and initialize the String that will hold the map
 	String map = "";
 
 	ArrayList<IAffichable> al;
