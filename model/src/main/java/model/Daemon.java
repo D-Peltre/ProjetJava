@@ -64,11 +64,14 @@ public class Daemon extends Affichable{
 	
 	public boolean checkCollisions(int x, int y){
 		IAffichable collision=this.world.get_collision(x, y);
-		if(collision==null || collision.get_type()=="L"){
+		if(collision==null){
 		    this.x=x;
 		    this.y=y;
 		    return false;
 		    }
+		else if(collision.get_type()=="L"){
+			this.world.gameover();
+		}
 	    return false;
         }
 }

@@ -8,6 +8,7 @@ import contract.IController;
 import contract.IModelManager;
 import contract.IView;
 import contract.PossibleMove;
+import contract.IWorld;
 
 public class Controller implements IController{
 	private IView view;
@@ -37,7 +38,15 @@ public class Controller implements IController{
 	public void control(){
 		while(true){
 		this.refresh(this.model.get_objects());
+		if(this.model.getGameover()){
+			this.gameover();
 		}
-	    }
+		}
+	}
+	
+	public void gameover(){
+		this.view.printMessage("GAME OVER !");
+		System.exit(0);
+	}
 
 }

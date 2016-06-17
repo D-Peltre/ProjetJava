@@ -9,7 +9,7 @@ import contract.IAffichable;
 import contract.IModelManager;
 import contract.PossibleMove;
 
-public class ModelManager extends Observable implements IModelManager{
+public class ModelManager implements IModelManager{
 	World world;
 	public ModelManager(){
 		MapCreator myMap = null;
@@ -24,6 +24,10 @@ public class ModelManager extends Observable implements IModelManager{
 	}
 	public ArrayList <IAffichable> get_objects() {
 		return this.world.get_objects();
+	}
+	
+	public boolean getGameover(){
+		return this.world.getGameover();
 	}
 	
 	

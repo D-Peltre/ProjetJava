@@ -14,6 +14,7 @@ public class World implements IWorld{
     private ArrayList <IAffichable> al ;
     private Lorann lorann;
 	private Spell spell;
+	private boolean gameover = false;
 	public World(ArrayList <IAffichable> al){
 		final World y=this;
 		this.al = al;
@@ -74,5 +75,14 @@ public class World implements IWorld{
 
 	public ArrayList <IAffichable> get_objects() {
 		return this.al;
+	}
+
+
+	public void gameover(){
+		this.gameover  = true;
+	}
+
+	public boolean getGameover() {
+		return this.gameover;
 	}
 }
