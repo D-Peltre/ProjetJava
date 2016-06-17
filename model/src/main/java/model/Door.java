@@ -19,7 +19,12 @@ public class Door extends Affichable{
 	public String get_type(){
 		return "{";
 	}
-	public void move(){}
+	
+	public void move(){
+		if(this.world.get_lorann().has_energy()){
+			this.changeDoor();
+		}
+	}
 	
 	public boolean getEtat(){
 		return this.etat;

@@ -15,18 +15,10 @@ import contract.PossibleMove;
 public class Spell extends Affichable {
 	ArrayList<Image> sprites;
 	HashMap<PossibleMove, PossibleMove> rebondi = new HashMap<PossibleMove, PossibleMove>();
-	PossibleMove direction;
+	PossibleMove direction=PossibleMove.NONE;
 
 	public Spell(int x, int y) {
 		super(x, y);
-		try {
-			sprites.add(ImageIO.read(this.getClass().getResourceAsStream("/Sprite/fireball_1.png")));
-			sprites.add(ImageIO.read(this.getClass().getResourceAsStream("/Sprite/fireball_2.png")));
-			sprites.add(ImageIO.read(this.getClass().getResourceAsStream("/Sprite/fireball_3.png")));
-			sprites.add(ImageIO.read(this.getClass().getResourceAsStream("/Sprite/fireball_4.png")));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 
 		this.rebondi.put(PossibleMove.DOWN, PossibleMove.UP);
 		this.rebondi.put(PossibleMove.DOWNLEFT, PossibleMove.UPRIGHT);
@@ -36,20 +28,31 @@ public class Spell extends Affichable {
 		this.rebondi.put(PossibleMove.UP, PossibleMove.DOWN);
 		this.rebondi.put(PossibleMove.UPLEFT, PossibleMove.DOWNRIGHT);
 		this.rebondi.put(PossibleMove.UPRIGHT, PossibleMove.DOWNLEFT);
-		
+
+		try {
+			this.sprite=ImageIO.read(this.getClass().getResourceAsStream("/Sprite/fireball_1.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 	}
 	
 	public void fire(int x, int y, PossibleMove direction){
-		this.direction = direction;
-		this.x=x;
-		this.y=y;
-		this.set_hidden(false);
+		if(this.get_hidden()){
+			this.direction = direction;
+			this.x=x;
+			this.y=y;
+			this.set_hidden(false);
+			this.move();
+	    	}
 	    }
 
 	public void move() {
-		this.sprite=this.sprites.get(3);
-		switch (direction) {
+		//this.sprite=this.sprites.get(3);
+		if(!this.get_hidden()){
+		  System.out.println(this.direction);
+		  }
+		switch (this.direction) {
 		case LEFT:
 			this.checkCollisions(x-1,y);
 			break;

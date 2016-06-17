@@ -35,7 +35,7 @@ public class Lorann extends Affichable{
 	
 	public void move(PossibleMove possibleMove){
 		this.possibleMove=possibleMove;
-		if(possibleMove!=PossibleMove.NONE){
+		if(possibleMove!=PossibleMove.NONE && possibleMove!=PossibleMove.FIRE){
 			this.lastMove=possibleMove;
 		    }
 	    }
@@ -43,11 +43,11 @@ public class Lorann extends Affichable{
 	@Override
 	public Image getSprite() {
 		//System.out.println(this.possibleMove);
-		return hm.get(this.possibleMove);
+		return hm.get(this.lastMove);
 	}
 
 	public void move(){
-		System.out.println(this.possibleMove);
+		//System.out.println(this.possibleMove);
 		
 		switch(this.possibleMove){
 		case LEFT:
@@ -165,6 +165,10 @@ public class Lorann extends Affichable{
 	}
 	public String get_type(){
 		return "L";
+	}
+
+	public boolean has_energy() {
+		return false;
 	}
 
 }

@@ -18,7 +18,7 @@ public class World implements IWorld{
 		final World y=this;
 		this.al = al;
 		
-		Spell spell = new Spell(0, 0);
+		Spell spell = new Spell(1, 1);
 		spell.set_hidden(true);
 		this.al.add(spell);
 		this.spell=spell;
