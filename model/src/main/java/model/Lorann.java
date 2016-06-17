@@ -27,6 +27,7 @@ public class Lorann extends Affichable{
 			this.hm.put(PossibleMove.UP , ImageIO.read(this.getClass().getResourceAsStream("/Sprite/lorann_u.png")));
 			this.hm.put(PossibleMove.UPLEFT , ImageIO.read(this.getClass().getResourceAsStream("/Sprite/lorann_ul.png")));
 			this.hm.put(PossibleMove.UPRIGHT , ImageIO.read(this.getClass().getResourceAsStream("/Sprite/lorann_ur.png")));
+            this.sprite=this.hm.get(PossibleMove.DOWN);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -34,12 +35,15 @@ public class Lorann extends Affichable{
 	
 	public void move(PossibleMove possibleMove){
 		this.possibleMove=possibleMove;
+		this.sprite = hm.get(possibleMove);
+		System.out.println(possibleMove);
 		if(possibleMove!=PossibleMove.NONE){
 			this.lastMove=possibleMove;
 		    }
 	    }
-	
+
 	public void move(){
+		this.sprite = hm.get(possibleMove);
 		switch(this.possibleMove){
 		case LEFT:
 			this.moveLeft();
@@ -72,7 +76,6 @@ public class Lorann extends Affichable{
 	}
 	}
 
-    @Override
 	public void registerWorld(IWorld y) {
 		this.world=(model.World) y;
 		this.world.set_lorann(this);
@@ -115,42 +118,34 @@ public class Lorann extends Affichable{
 	
 	public void moveDown(){
 		this.checkCollisions(x,y+1);
-		this.sprite = hm.get(PossibleMove.DOWN);
 	}
 	
 	public void moveDownLeft(){
 		this.checkCollisions(x-1,y+1);
-		this.sprite = hm.get(PossibleMove.DOWNLEFT);
 	}
 	
 	public void moveDownRight(){
 		this.checkCollisions(x+1,y+1);
-		this.sprite = hm.get(PossibleMove.DOWNRIGHT);
 	}
 	
 	public void moveLeft(){
 		this.checkCollisions(x-1,y);
-		this.sprite = hm.get(PossibleMove.LEFT);
 	}
 	
 	public void moveRight(){
 		this.checkCollisions(x+1,y);
-		this.sprite = hm.get(PossibleMove.RIGHT);
 	}
 	
 	public void moveUp(){
 		this.checkCollisions(x,y-1);
-		this.sprite = hm.get(PossibleMove.UP);
 	}
 	
 	public void moveUpLeft(){
 		this.checkCollisions(x-1,y-1);
-		this.sprite = hm.get(PossibleMove.UPLEFT);
 	}
 	
 	public void moveUpRight(){
 		this.checkCollisions(x+1,y-1);
-		this.sprite = hm.get(PossibleMove.UPRIGHT);
 	}
 	
 	public void fire(){
