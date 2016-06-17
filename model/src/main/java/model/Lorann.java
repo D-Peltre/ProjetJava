@@ -66,7 +66,7 @@ public class Lorann extends Affichable{
 			this.moveUpRight();
 			break;
 		case UPLEFT:
-			this.moveLeft();
+			this.moveUpLeft();
 			break;
 		case DOWNRIGHT:
 			this.moveDownRight();
