@@ -39,7 +39,7 @@ public class Spell extends Affichable {
 	
 	public void fire(int x, int y, PossibleMove direction){
 		if(this.get_hidden()){
-			this.direction = direction;
+			this.direction = rebondi.get(direction);
 			this.x=x;
 			this.y=y;
 			this.set_hidden(false);
