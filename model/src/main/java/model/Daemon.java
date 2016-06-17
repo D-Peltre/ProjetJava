@@ -64,7 +64,7 @@ public class Daemon extends Affichable{
 	
 	public boolean checkCollisions(int x, int y){
 		IAffichable collision=this.world.get_collision(x, y);
-		if(collision==null){
+		if(collision==null || collision.get_type()=="L"){
 		    this.x=x;
 		    this.y=y;
 		    return false;
