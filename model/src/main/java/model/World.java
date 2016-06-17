@@ -33,10 +33,13 @@ public class World implements IWorld{
 	
 	public void add(IAffichable object){
 		this.al.add(object);
+		object.registerWorld(this);
+		object.set_hidden(false);
 	    }
 	
 	public void remove(IAffichable object){
-		this.al.remove(object);
+		//this.al.remove(object);
+		object.set_hidden(true);
 	    }
 	
 	public Lorann get_lorann(){
@@ -51,7 +54,7 @@ public class World implements IWorld{
 	}
 	public IAffichable get_collision(int x, int y){
 		for(IAffichable element:al){
-			if(element.getX()==x && element.getY()==y){
+			if(element.getX()==x && element.getY()==y && element.get_hidden()==false){
 			   return element;
 			   }
 		    }

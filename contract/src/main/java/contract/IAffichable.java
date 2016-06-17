@@ -10,4 +10,6 @@ public interface IAffichable {
 	public void move();
 	public void registerWorld(IWorld y);
 	public String get_type();
+	public boolean get_hidden();
+	public void set_hidden(boolean newval);
 }

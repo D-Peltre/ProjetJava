@@ -7,6 +7,7 @@ import contract.IWorld;
 
 public abstract class Affichable implements IAffichable{
 	int x, y = 0 ;
+	boolean hidden=false;
 	World world;
 	Image sprite;
 	Affichable(int x, int y){
@@ -26,10 +27,23 @@ public abstract class Affichable implements IAffichable{
 	}
 
 	public Image getSprite() {
-		return this.sprite;
+		if(!this.get_hidden()){
+		   return this.sprite;
+		   }
+		return null;
 	}
 
 	public void registerWorld(IWorld y) {
 		this.world=(model.World) y;
 	}
+
+	public boolean get_hidden() {
+		return this.hidden;
+    	}
+
+	public void set_hidden(boolean newval) {
+		this.hidden=newval;
+	    }
+	
+	
 }
