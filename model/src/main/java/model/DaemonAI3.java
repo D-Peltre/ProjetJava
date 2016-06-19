@@ -49,16 +49,21 @@ public class DaemonAI3 implements DaemonAI{
 
 
 	public void collided() {
-		int j=(int) Math.random()*4;
+		double i=Math.random()*4;
+		int j=(int) Math.floor(i);
 		switch(j){
-		case 0:
-			this.direction=PossibleMove.LEFT;
-		case 1:
-			this.direction=PossibleMove.RIGHT;
-		case 2:
-			this.direction=PossibleMove.UP;
-		case 3:
-			this.direction=PossibleMove.DOWN;
+			case 0:
+				this.direction=PossibleMove.LEFT;
+				break;
+			case 1:
+				this.direction=PossibleMove.RIGHT;
+				break;
+			case 2:
+				this.direction=PossibleMove.UP;
+				break;
+			case 3:
+				this.direction=PossibleMove.DOWN;
+				break;
 			}
 		}
 
