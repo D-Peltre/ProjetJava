@@ -7,6 +7,7 @@ import javax.imageio.ImageIO;
 
 public class DaemonAI2 implements DaemonAI {
 	// The second type of monster tries to move in all directions getting as close to the player as possible
+	
 	BufferedImage sprite;
 	public DaemonAI2(){
 		try {

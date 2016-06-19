@@ -7,6 +7,7 @@ import javax.imageio.ImageIO;
 
 public class DaemonAI1 implements DaemonAI {
 	// The first type of monster tries to move to the nearest of Horizontal/Vertical, without taking into account diagonals
+	
 	BufferedImage sprite;
 	public DaemonAI1(){
 		try {

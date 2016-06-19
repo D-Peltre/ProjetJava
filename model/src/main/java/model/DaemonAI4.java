@@ -9,6 +9,7 @@ import contract.PossibleMove;
 
 public class DaemonAI4 implements DaemonAI {
 	//The fourth type of monster moves in one direction, until it hits something, and then it looks the direction the player is in, and start moving in that direction.
+	
 	BufferedImage sprite;
 	PossibleMove direction;
 	int deltaX=0;

@@ -9,6 +9,7 @@ import contract.PossibleMove;
 
 public class DaemonAI3 implements DaemonAI{
 	//The third type of monster moves randomly in a direction until it hits something
+	
 	BufferedImage sprite;
 	PossibleMove direction;
 	public DaemonAI3(){

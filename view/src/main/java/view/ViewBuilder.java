@@ -46,7 +46,7 @@ public class ViewBuilder{
 		   }
 	 graphics.drawString("Score: "+this.score, 10, this.viewpanel.getHeight()-8);
 	 }
-     public void send_score(int score) {
-	     this.score=score;
-         }
+   public void send_score(int score) {
+     this.score=score;
+     }
    }

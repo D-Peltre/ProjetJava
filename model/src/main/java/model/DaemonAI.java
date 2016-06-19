@@ -9,3 +9,4 @@ public interface DaemonAI {
 	  public BufferedImage getSprite();
 	  public void collided();
       }
+
