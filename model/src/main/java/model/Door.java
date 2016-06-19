@@ -1,10 +1,6 @@
 package model;
-import java.awt.Image;
-import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-
-import contract.IAffichable;
 
 public class Door extends Affichable{
 	boolean etat = false; //quand la porte est fermé

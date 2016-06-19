@@ -8,7 +8,6 @@ import contract.IController;
 import contract.IModelManager;
 import contract.IView;
 import contract.PossibleMove;
-import contract.IWorld;
 
 public class Controller implements IController{
 	private IView view;

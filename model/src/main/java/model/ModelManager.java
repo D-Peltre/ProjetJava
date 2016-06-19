@@ -1,10 +1,7 @@
 package model;
 
 
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Observable;
-
 import contract.IAffichable;
 import contract.IModelManager;
 import contract.PossibleMove;
