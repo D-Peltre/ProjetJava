@@ -13,35 +13,57 @@ public class Controller implements IController{
 	private IView view;
 	private IModelManager model;
 	
-	//Le constructeur de controller qui construit la relation d'agregation avec la vue et le model
-	public Controller(final IView view, final IModelManager model) {
-		//appel des methode set qui sont dans cette meme classe 
+
+	/**
+	 * Contructor of controller that builds the aggregation relationship with the view and the model
+	 * @param view
+	 * @param model
+	 */
+	public Controller(final IView view, final IModelManager model) { 
 		this.setView(view); 
 		this.setModel(model);
 	}
 	
-	// la méthode setView qui associe la vue a celle dans le controller
+	
+
+	/**
+	 * This function combines a view that in the controller
+	 * @param view
+	 */
 	private void setView(final IView view) {
 		this.view = view;
 	}
-	// la méthode setModel qui associe la vue a celle dans le controller
+	
+	/**
+	 * This function combines a model that in the controller
+	 * @param model
+	 */
 	private void setModel(final IModelManager model) {
 		this.model = model;
 	}
 	
-	// orderDirection est la méthode qui passe au model l'action utilisateur qui provient de la vue 
+
+	/* (non-Javadoc)
+	 * @see contract.IController#orderDirection(contract.PossibleMove)
+	 */
 	public void orderDirection (PossibleMove possibleMove){
 		this.model.move(possibleMove);
 	}
 	
-	//La mthode refresh va etre appele dans la vue et elle lui passera la liste d'objet qui vient du model
+
+	/* (non-Javadoc)
+	 * @see contract.IController#refresh(java.util.ArrayList)
+	 */
 	public void refresh(ArrayList <IAffichable> objects){
 		this.view.send_objects(objects);
 	}
 	
-	//la méthode control est appelé par la main et c'est elle qui fait tourner le programme avec une boucle while 
-	// elle fais appel a la méthode refresh a chaque fois et verifie si on doit faire game over ou non 
-	// elle met aussi le score a jour en permanence car elle fait appel a la fontion send_score
+
+	/**
+	 * this method is called by the main and it was she who runs the program with a while loop
+	 * they do call the refresh method every time, and checked whether to make game over or not
+	 * she also update the score with the method send_score
+	 */
 	public void control(){
 		while(true){
 		this.refresh(this.model.get_objects());
@@ -55,13 +77,19 @@ public class Controller implements IController{
 		}
 	}
 	
-	//cette méthode appel la fonction qui affiche gameOver et elle ferme le programme
+
+	/**
+	 * this method call the function that displays you lose and it closes the program
+	 */
 	public void gameover(){
 		this.view.printMessage("GAME OVER !");
 		System.exit(0);
 	}
 	
-	//cette méthode appel la fonction qui affiche you win et elle ferme le programme
+
+	/**
+	 * this method call the function that displays you win and it closes the program
+	 */
 	public void win(){
 		this.view.printMessage("You won!");
 		System.exit(0);
