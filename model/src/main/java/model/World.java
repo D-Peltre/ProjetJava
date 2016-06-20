@@ -65,7 +65,7 @@ public class World implements IWorld{
 	 * @param object - the object to remove
 	 */
 	public void remove(IAffichable object){
-		//this.al.remove(object);
+		this.al.remove(object);
 		object.set_hidden(true);
 	    }
 	
