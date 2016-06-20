@@ -18,7 +18,7 @@ public class MapCreatorTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		this.mp = new MapCreator();
+		this.mp = new MapCreator("1");
 		this.mp.setMap("- | o { * d $ L R - X") ;
 		al.add(new HorizontalWall(0,0));
 		this.al.add(new VerticalWall(1,0));
@@ -35,7 +35,7 @@ public class MapCreatorTest {
 	@Test
 	public void testConnection()  {
 		MapCreator mp = null;
-		mp = new MapCreator();
+		mp = new MapCreator("1");
 		}
 	
 	
@@ -43,7 +43,7 @@ public class MapCreatorTest {
 	@Test
 	public void testMap(){
 		MapCreator mp = null;
-		mp = new MapCreator();
+		mp = new MapCreator("1");
 		assertEquals(mp.getMap(), "o--------------o-{-oR|L o o        $|  d|R| o o   |      |   |R|o o----o----o o-o |R| o| *  |$    d  | |R|o |    | o----o | |R|  |  d |       d| |R|  |    o------- | |R|  |             | |R|  o-------------o |R|          $       |Ro------------------oX");
 	}
 
