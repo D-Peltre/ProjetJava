@@ -25,6 +25,7 @@ public class Lorann extends Affichable{
 	public Lorann(int x, int y) {
 		super(x,y);
 		try {
+				/* Charge tout les Images */
 			this.hm.put(PossibleMove.LEFT , ImageIO.read(this.getClass().getResourceAsStream("/Sprite/lorann_l.png")));
 			this.hm.put(PossibleMove.DOWN , ImageIO.read(this.getClass().getResourceAsStream("/Sprite/lorann_d.png")));
 			this.hm.put(PossibleMove.NONE , ImageIO.read(this.getClass().getResourceAsStream("/Sprite/lorann_d.png")));
@@ -34,7 +35,6 @@ public class Lorann extends Affichable{
 			this.hm.put(PossibleMove.UP , ImageIO.read(this.getClass().getResourceAsStream("/Sprite/lorann_u.png")));
 			this.hm.put(PossibleMove.UPLEFT , ImageIO.read(this.getClass().getResourceAsStream("/Sprite/lorann_ul.png")));
 			this.hm.put(PossibleMove.UPRIGHT , ImageIO.read(this.getClass().getResourceAsStream("/Sprite/lorann_ur.png")));
-            //this.sprite=this.hm.get(PossibleMove.DOWN);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -47,6 +47,7 @@ public class Lorann extends Affichable{
 	 */
 	public void move(PossibleMove possibleMove){
 		this.possibleMove=possibleMove;
+		   /* We only modify the LastMove (for the grafix and the spell) if we effectively moved */
 		if(possibleMove!=PossibleMove.NONE && possibleMove!=PossibleMove.FIRE){
 			this.lastMove=possibleMove;
 		    }
@@ -65,9 +66,8 @@ public class Lorann extends Affichable{
 	 * Update the players reaction
 	 * Called each step by the timer
 	 */
-	public void move(){
-		//System.out.println(this.possibleMove);
-		
+	public void move(){		
+		/* test all the possible moves */
 		switch(this.possibleMove){
 		case LEFT:
 			this.moveLeft();
@@ -97,7 +97,7 @@ public class Lorann extends Affichable{
 			this.fire();
 	default:
 		break;
-	}
+		}
 	}
 
 	/**
@@ -226,7 +226,8 @@ public class Lorann extends Affichable{
 	}
 	
 	/**
-	 * Fires a spell (the checking of the possibility of it is done in the code for the spell
+	 * Fires a spell (the checking of the possibility of it is done in the code for the spell)
+	 * The actual firing is done elsewhere, by the world
 	 */
 	public void fire(){
 		this.world.fire_spell(this.x, this.y, this.lastMove);;
