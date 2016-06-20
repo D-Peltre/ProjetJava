@@ -17,6 +17,11 @@ public class Lorann extends Affichable{
 	boolean energie=false;
 	int score=0;
 	
+	/**
+	 * Creates a Lorann
+	 * @param x - The X position Lorann starts at
+	 * @param y - The Y position Lorann starts at
+	 */
 	public Lorann(int x, int y) {
 		super(x,y);
 		try {
@@ -35,6 +40,11 @@ public class Lorann extends Affichable{
 		}
 	}
 	
+	/**
+	 * Changes the direction Lorann is heading in
+	 * Called by the controller upon receiving a key event
+	 * @param possibleMove - The new direction
+	 */
 	public void move(PossibleMove possibleMove){
 		this.possibleMove=possibleMove;
 		if(possibleMove!=PossibleMove.NONE && possibleMove!=PossibleMove.FIRE){
@@ -42,12 +52,19 @@ public class Lorann extends Affichable{
 		    }
 	    }
 
+	/**
+	 * @see model.Affichable#getSprite()
+	 */
 	@Override
 	public Image getSprite() {
-		//System.out.println(this.possibleMove);
+		/* Instead of returning just 1 sprite, this function returns the sprite depending on the last move Lorann has done*/
 		return hm.get(this.lastMove);
 	}
 
+	/**
+	 * Update the players reaction
+	 * Called each step by the timer
+	 */
 	public void move(){
 		//System.out.println(this.possibleMove);
 		
@@ -83,10 +100,22 @@ public class Lorann extends Affichable{
 	}
 	}
 
+	/**
+	 * Note down the current world. Also set this Lorann in the world as the current one.
+	 * @param y - the current world
+	 */
 	public void registerWorld(IWorld y) {
 		this.world=(model.World) y;
 		this.world.set_lorann(this);
 	}
+	/**
+	 * Check the collisions at a spot, and then move to it
+	 * @param xpos - the new X position
+	 * @param ypos - the new Y position
+	 * @return
+	 *  - True if there is something in the way
+	 *  - False if there is nothing in the way
+	 */
 	public boolean checkCollisions(int xpos, int ypos){
 		IAffichable collision=this.world.get_collision(xpos, ypos);
 		if(collision==null){
@@ -94,22 +123,8 @@ public class Lorann extends Affichable{
 		    this.y=ypos;
 		    return false;
 		    }
-		//System.out.println(collision.get_type());
 		if(collision.get_type()=="d"){
-			//System.out.println("Tu t'es fait tué");
-		    }
-		else if(collision.get_type()=="}"){
-			//if ( getEtat() == False){
-				//you die 
-			//}
-			//else {
-				// you win
-			//}
-				//win
-			   // }
-			//else{
-				//die
-			//    }
+			/* Handled in the code of the Daemon */
 		    }
 		else if(collision.get_type()=="$"){
 			//increase score
@@ -130,67 +145,115 @@ public class Lorann extends Affichable{
 			this.world.remove(collision);
 		    }
 		else if(collision.get_type()=="{"){
+			  /* If you have the energy to move on */
 			if(this.energie){
 			    this.world.gameover(false);
 			   }
+			  /* else you lose */
 			else{
 			   this.world.gameover(true);
 			   }
 		    }
 		else{
-
+			  /* It is something solid */
 			SoundEffect.BONK.play();
 		}
 		return true;
         }
 	
+	/**
+	 * This returns the last effective move of the player
+	 * @return the last effective move of the player
+	 */
 	public PossibleMove getLastMove(){
 		return this.lastMove;
 	    }
 	
+	/**
+	 * Moves 1 step down
+	 */
 	public void moveDown(){
 		this.checkCollisions(x,y+1);
 	}
 	
+	/**
+	 * Moves 1 step left
+	 */
 	public void moveDownLeft(){
 		this.checkCollisions(x-1,y+1);
 	}
 	
+	/**
+	 * Moves 1 step downright
+	 */
 	public void moveDownRight(){
 		this.checkCollisions(x+1,y+1);
 	}
 	
+	/**
+	 * Moves 1 step left
+	 */
 	public void moveLeft(){
 		this.checkCollisions(x-1,y);
 	}
 	
+	/**
+	 * Moves 1 step right
+	 */
 	public void moveRight(){
 		this.checkCollisions(x+1,y);
 	}
 	
+	/**
+	 * Moves 1 step up
+	 */
 	public void moveUp(){
 		this.checkCollisions(x,y-1);
 	}
 	
+	/**
+	 * Moves 1 step upleft
+	 */
 	public void moveUpLeft(){
 		this.checkCollisions(x-1,y-1);
 	}
 	
+	/**
+	 * Moves 1 step upright
+	 */
 	public void moveUpRight(){
 		this.checkCollisions(x+1,y-1);
 	}
 	
+	/**
+	 * Fires a spell (the checking of the possibility of it is done in the code for the spell
+	 */
 	public void fire(){
 		this.world.fire_spell(this.x, this.y, this.lastMove);;
 	}
+	
+	/**
+	 * Get the type of the object (i.e. "L")
+	 * @return the type of the object
+	 */
 	public String get_type(){
 		return "L";
 	}
 
+	/**
+	 * To test if the player has catched a energy bowl
+	 * @return 
+	 *  - True if the player has catched an energy bowl
+	 *  - False if the player hasn't
+	 */
 	public boolean has_energy() {
 		return this.energie;
 	}
 	
+	/**
+	 * Get the current score
+	 * @return the current score
+	 */
 	public int get_score(){
 		return this.score;
 	    }
