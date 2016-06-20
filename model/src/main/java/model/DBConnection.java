@@ -17,7 +17,7 @@ public class DBConnection {
 	}
 
 	/**
-	 * @return INSTANCE --> the connection
+	 * @return INSTANCE  the connection
 	 */
 	public static synchronized DBConnection getInstance() {
 		if (DBConnection.INSTANCE == null) {
