@@ -55,14 +55,4 @@ public class MapCreatorTest {
 		}
 	}
 
-	@Test
-	public void testGetObjects() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetMap() {
-		fail("Not yet implemented");
-	}
-
 }
