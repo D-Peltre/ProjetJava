@@ -12,7 +12,7 @@ import contract.IAffichable;
 /**
  * The Class ViewPanel.
  *
- * @author Jean-Aymeric Diet
+ * @author Jean-Aymeric Diet, Yvar de Goffau
  */
 class ViewPanel extends JPanel{
 
@@ -63,16 +63,25 @@ class ViewPanel extends JPanel{
 		this.repaint();
 	}
 	
+	/**
+	 * This function send the list of IAffichables to the ViewBuilder, for it to draw it.
+	 * @param objects - the ArrayList of IAffichables to draw
+	 */
+	
 	public void send(ArrayList <IAffichable> objects){
 		this.viewbuilder.update(objects);
 	    }
 	
+	/**
+	 * This function returns the current ViewBuilder
+	 * @return the current ViewBuilder
+	 */
 	public ViewBuilder get_viewbuilder(){
 		return this.viewbuilder;
 	}
 
 	/*
-	 * (non-Javadoc)
+	 * This function redraws the ViewPanel using its ViewBuilder
 	 *
 	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
 	 */
@@ -81,6 +90,10 @@ class ViewPanel extends JPanel{
 		this.viewbuilder.render(graphics);
 	}
 
+	/**
+	 * This function sends the current score to the ViewBuilder, for it to draw it.
+	 * @param score - the score to draw
+	 */
 	public void send_score(int score) {
 		this.viewbuilder.send_score(score);
 		

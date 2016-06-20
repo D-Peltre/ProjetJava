@@ -14,7 +14,7 @@ import contract.PossibleMove;
 /**
  * The Class View.
  *
- * @author Jean-Aymeric Diet
+ * @author Jean-Aymeric Diet, Yvar de Goffau
  */
 public class View implements IView, Runnable {
 
@@ -73,6 +73,11 @@ public class View implements IView, Runnable {
 		this.viewFrame.printMessage(message);
 	}
 	
+	/**
+	 * This function send the list of IAffichables to the ViewBuilder, for it to draw it.
+	 * @param objects - the ArrayList of IAffichables to draw
+	 */
+	
 	public void send_objects(ArrayList <IAffichable> objects){
 		this.viewFrame.getViewPanel().send(objects);
 	}
@@ -96,6 +101,10 @@ public class View implements IView, Runnable {
 		this.viewFrame.setController(controller);
 	}
 
+	/**
+	 * This function sends the current score to the ViewBuilder, for it to draw it.
+	 * @param score - the score to draw
+	 */
 	public void send_score(int score) {
 		this.viewFrame.send_score(score);
 		

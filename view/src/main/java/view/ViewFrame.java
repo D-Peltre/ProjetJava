@@ -14,7 +14,7 @@ import contract.IModelManager;
 /**
  * The Class ViewFrame.
  *
- * @author Jean-Aymeric Diet
+ * @author Jean-Aymeric Diet, Yvar de Goffau
  */
 class ViewFrame extends JFrame implements KeyListener {
 
@@ -138,12 +138,16 @@ class ViewFrame extends JFrame implements KeyListener {
 		this.setLocationRelativeTo(null);
 	}
 	
+	/**
+	 * This function returns the current ViewPanel
+	 * @return the current ViewPanel
+	 */
 	public ViewPanel getViewPanel(){
 		return this.viewPanel;
 	    }
 
 	/**
-	 * Prints the message.
+	 * Prints a message.
 	 *
 	 * @param message
 	 *          the message
@@ -163,7 +167,7 @@ class ViewFrame extends JFrame implements KeyListener {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * @see keyPressed
 	 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
 	 */
 	public void keyPressed(final KeyEvent e) {
@@ -171,7 +175,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	}
 
 	/*
-	 * (non-Javadoc)
+	 * This function should be called each time a key is pressed. It then makes a call to the Controller, with the keyCode as translated by the View
 	 *
 	 * @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
 	 */
@@ -180,6 +184,10 @@ class ViewFrame extends JFrame implements KeyListener {
 
 	}
 
+	/**
+	 * This function sends the current score to the ViewBuilder, for it to draw it.
+	 * @param score - the score to draw
+	 */
 	public void send_score(int score) {
 		this.viewPanel.send_score(score);
 		
