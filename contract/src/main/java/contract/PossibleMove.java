@@ -1,5 +1,9 @@
 package contract;
 
+/**
+ * @author Dylan
+ * Enumerates every possible move for every objetcs
+ */
 public enum PossibleMove {
 	
 	LEFT,

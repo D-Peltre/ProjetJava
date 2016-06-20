@@ -27,7 +27,7 @@ public class Controller implements IController{
 	
 
 	/**
-	 * This function combines a view that in the controller
+	 * This function combines a view that is in the controller
 	 * @param view
 	 */
 	private void setView(final IView view) {
@@ -35,7 +35,7 @@ public class Controller implements IController{
 	}
 	
 	/**
-	 * This function combines a model that in the controller
+	 * This function combines a model that is in the controller
 	 * @param model
 	 */
 	private void setModel(final IModelManager model) {

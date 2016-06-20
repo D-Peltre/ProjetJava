@@ -5,22 +5,27 @@ import controller.Controller;
 import model.ModelManager;
 import view.View;
 
-
 public abstract class Main {
 
 
 	public static void main(final String[] args) {
-		// On crée notre model
+		// We create our model
 		final ModelManager model = new ModelManager();
-		// on cree notre vue 
+		
+		// We create our view with the model in the parameters
 		final View view = new View(model);
-		// on cree notre controller en lui passant notre vue et notre model
+		
+		// Create a new controller with the view and the model in its parameters
 		final Controller controller = new Controller(view, model);
-		//on appel la méthode setController qui est dans notre vue, elle montre a la vue qui est le controller
+
+		//Call the setController method in the Controller, allows to show the view who is the controller
 		view.setController(controller);
-		//on appel la méthode setController qui est dans notre vue, elle fait apparaitre la fenetre 
+		
+		// run() create a new window used to print our objects
 		view.run();
-		//On fait appel a la méthode control qui est celle qui contient la boucle de notre programme
+		
+		// calls the method that holds the programm loop
 		controller.control();
+		
 	}
 }
