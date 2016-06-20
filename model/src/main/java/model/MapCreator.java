@@ -16,9 +16,9 @@ public class MapCreator extends DBConnection{
 
 	ArrayList<IAffichable> al;
 	
-	public MapCreator() {
+	public MapCreator(String mapnum) {
 		try{
-		String idMap = "1";
+		String idMap = mapnum;
 		String sql = "{call getMap(?)}";
 		CallableStatement call = connection.prepareCall(sql);
 		call.setString(1, idMap);

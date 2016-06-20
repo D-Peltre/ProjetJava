@@ -1,6 +1,5 @@
 package main;
 
-import contract.IModelManager;
 import controller.Controller;
 import model.ModelManager;
 import view.View;
@@ -14,6 +13,8 @@ public abstract class Main {
 		
 		// We create our view with the model in the parameters
 		final View view = new View(model);
+		
+		model.load_map(view.ask_map());
 		
 		// Create a new controller with the view and the model in its parameters
 		final Controller controller = new Controller(view, model);

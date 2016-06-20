@@ -19,8 +19,11 @@ public class ModelManager implements IModelManager {
 	 * then send the array list created by the createObject method from MapCreator to the World constructor
 	 */
 	public ModelManager() {
+	}
+	
+	public void load_map(String mapnum){
 		MapCreator myMap = null;
-		myMap = new MapCreator();
+		myMap = new MapCreator(mapnum);
 		myMap.createObjects();
 		this.world = new World(myMap.getObjects());
 	}

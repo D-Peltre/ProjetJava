@@ -69,11 +69,13 @@ public class ViewBuilder{
 	 graphics.fillRect(0, 0, this.viewpanel.getWidth(), this.viewpanel.getHeight());
 	 graphics.setColor(new Color(255,255,255));
 	   /* For each object in the list of objects... */
-	 for(IAffichable object:this.objects){
-	   /* ... draw the object */
-		   graphics.drawImage(object.getSprite(), object.getX()*32, object.getY()*32, viewpanel);
-		   }
-	   /* Draw the score */
+	 if(this.objects!=null){
+		 for(IAffichable object:this.objects){
+			 /* ... draw the object */
+			 graphics.drawImage(object.getSprite(), object.getX()*32, object.getY()*32, viewpanel);
+		   	}
+	 	}
+		 /* Draw the score */
 	 graphics.drawString("Score: "+this.score, 10, this.viewpanel.getHeight()-8);
 	 }
    /**

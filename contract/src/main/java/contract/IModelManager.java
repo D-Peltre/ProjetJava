@@ -24,6 +24,8 @@ public interface IModelManager {
 	 * @return value of score
 	 */
 	public int get_score();
+
+	public void load_map(String ask_map);
 	
 	
 

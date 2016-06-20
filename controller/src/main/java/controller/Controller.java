@@ -82,8 +82,12 @@ public class Controller implements IController{
 	 * this method call the function that displays you lose and it closes the program
 	 */
 	public void gameover(){
-		this.view.printMessage("GAME OVER !");
-		System.exit(0);
+		if(!this.view.loose()){
+			System.exit(0);
+			}
+		else{
+			this.model.load_map(this.view.ask_map());
+			}
 	}
 	
 
@@ -91,8 +95,12 @@ public class Controller implements IController{
 	 * this method call the function that displays you win and it closes the program
 	 */
 	public void win(){
-		this.view.printMessage("You won!");
-		System.exit(0);
+		if(!this.view.win()){
+			System.exit(0);
+			}
+		else{
+			this.model.load_map(this.view.ask_map());
+			}
 	}
 
 }

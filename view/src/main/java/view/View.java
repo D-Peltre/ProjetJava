@@ -3,6 +3,7 @@ package view;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 import contract.IAffichable;
@@ -109,4 +110,43 @@ public class View implements IView, Runnable {
 		this.viewFrame.send_score(score);
 		
 	}
-}
+
+	public String ask_map() {
+		String[] maps={"1","2","3","4","5"};
+		return (String)JOptionPane.showInputDialog(null, 
+
+			      "Please select map",
+
+			      "Welcome to the game of Lorann",
+
+			      JOptionPane.QUESTION_MESSAGE,
+
+			      null,
+
+			      maps,
+
+			      maps[0]);
+	}
+
+	public boolean win() {
+		int option = JOptionPane.showConfirmDialog(null, "Replay another level?", "You won", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+		if(option != JOptionPane.NO_OPTION && 
+				option != JOptionPane.CANCEL_OPTION && 
+				option != JOptionPane.CLOSED_OPTION){
+				return true;
+				}
+		return false;
+	}
+
+	public boolean loose() {
+		int option = JOptionPane.showConfirmDialog(null, "Replay another level?", "You lost the game", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+		if(option != JOptionPane.NO_OPTION && 
+				option != JOptionPane.CANCEL_OPTION && 
+				option != JOptionPane.CLOSED_OPTION){
+				return true;
+				}
+		return false;
+		}
+	}
