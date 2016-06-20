@@ -5,30 +5,47 @@ import java.awt.Image;
 import contract.IAffichable;
 import contract.IWorld;
 
-//la classe abstraite de tout nos objets 
+
+/**
+ * the abstract class of all our objects
+ *
+ */
 public abstract class Affichable implements IAffichable{
-	int x, y = 0 ;    // la position de nos objets 
-	boolean hidden=false; // pour savoir si notre object doit etre affiche ou non 
+	int x, y = 0 ;   
+	boolean hidden=false; 
 	World world; 
 	Image sprite;
 	
-	// le constructeur enregistre les x et les y 
+	
+	/**
+	 * @param x
+	 * @param y
+	 */
 	Affichable(int x, int y){
 		this.x = x;
 		this.y = y;
 	}
 	
-	//retourne la position en x
+
+	/* (non-Javadoc)
+	 * @see contract.IAffichable#getX()
+	 */
 	public int getX(){
 		return this.x;
 	}
 	
-	//retourne la position en y 
+
+	/* (non-Javadoc)
+	 * @see contract.IAffichable#getY()
+	 */
 	public int getY(){
 		return this.y;
 	}
 	
 	//on renvoit le sprite si celui-ci n'est pas caché 
+	/* (non-Javadoc)
+	 * @see contract.IAffichable#getSprite()
+	 */
 	public Image getSprite() {
 		if(!this.get_hidden()){
 		   return this.sprite;
@@ -37,15 +54,24 @@ public abstract class Affichable implements IAffichable{
 	}
 	
 	//on leur indique une reference vers le monde 
+	/* (non-Javadoc)
+	 * @see contract.IAffichable#registerWorld(contract.IWorld)
+	 */
 	public void registerWorld(IWorld y) {
 		this.world=(model.World) y;
 	}
 	
-	//on indique si l'objet est cache ou non
+	
+	/* (non-Javadoc)
+	 * @see contract.IAffichable#get_hidden()
+	 */
 	public boolean get_hidden() {
 		return this.hidden;
     	}
-	//on change la visibilite de l'objet
+	
+	/* (non-Javadoc)
+	 * @see contract.IAffichable#set_hidden(boolean)
+	 */
 	public void set_hidden(boolean newval) {
 		this.hidden=newval;
 	    }
