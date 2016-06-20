@@ -18,6 +18,7 @@ public class World implements IWorld{
 	public World(ArrayList <IAffichable> al){
 		final World y=this;
 		this.al = al;
+		SoundEffect.init();
 		
 		Spell spell = new Spell(1, 1);
 		spell.set_hidden(true);

@@ -39,6 +39,7 @@ class ViewPanel extends JPanel implements Observer {
 	 *
 	 * @return the view frame
 	 */
+	@SuppressWarnings("unused")
 	private ViewFrame getViewFrame() {
 		return this.viewFrame;
 	}

@@ -94,11 +94,11 @@ public class Lorann extends Affichable{
 		    this.y=ypos;
 		    return false;
 		    }
-		System.out.println(collision.get_type());
+		//System.out.println(collision.get_type());
 		if(collision.get_type()=="d"){
-			System.out.println("Tu t'es fait tué");
+			//System.out.println("Tu t'es fait tué");
 		    }
-		if(collision.get_type()=="}"){
+		else if(collision.get_type()=="}"){
 			//if ( getEtat() == False){
 				//you die 
 			//}
@@ -111,23 +111,25 @@ public class Lorann extends Affichable{
 				//die
 			//    }
 		    }
-		if(collision.get_type()=="$"){
+		else if(collision.get_type()=="$"){
 			//increase score
 			this.score+=1;
+			SoundEffect.COIN.play();
 			//rem. bourse
 			this.world.remove(collision);
 		    }
-		if(collision.get_type()=="*"){
+		else if(collision.get_type()=="*"){
 			//increase energie
+			SoundEffect.ENERGY.play();
 			this.energie=true;
 			//rem. energy
 			this.world.remove(collision);
 		    }
-		if(collision.get_type()=="S"){
+		else if(collision.get_type()=="S"){
 			//rem. spell
 			this.world.remove(collision);
 		    }
-		if(collision.get_type()=="{"){
+		else if(collision.get_type()=="{"){
 			if(this.energie){
 			    this.world.gameover(false);
 			   }
@@ -135,7 +137,10 @@ public class Lorann extends Affichable{
 			   this.world.gameover(true);
 			   }
 		    }
-		
+		else{
+
+			SoundEffect.BONK.play();
+		}
 		return true;
         }
 	
@@ -176,7 +181,6 @@ public class Lorann extends Affichable{
 	}
 	
 	public void fire(){
-		
 		this.world.fire_spell(this.x, this.y, this.lastMove);;
 	}
 	public String get_type(){

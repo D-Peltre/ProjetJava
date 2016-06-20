@@ -36,6 +36,7 @@ public class Spell extends Affichable {
 	
 	public void fire(int x, int y, PossibleMove direction){
 		if(this.get_hidden()){
+			SoundEffect.SHOOT.play();
 			this.direction = rebondi.get(direction);
 			this.x=x;
 			this.y=y;
@@ -47,7 +48,7 @@ public class Spell extends Affichable {
 	public void move() {
 		//this.sprite=this.sprites.get(3);
 		if(!this.get_hidden()){
-		  System.out.println(this.direction);
+		  //System.out.println(this.direction);
 		  }
 		switch (this.direction) {
 		case LEFT:
