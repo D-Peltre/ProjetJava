@@ -4,47 +4,35 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/**
- * The Class DBConnection.
- *
- * @author Jean-Aymeric Diet
- */
 public class DBConnection {
-	/** The instance. */
-	private static DBConnection	INSTANCE	= null;
 
-	/** The connection. */
-	protected Connection					connection;
+	// cette variable nous servira a savoir si une instance existe ou non
+	private static DBConnection INSTANCE = null;
+	protected Connection connection;
 
-	/**
-	 * Instantiates a new DB connection.
-	 */
+	//Le contructeur appel la méthode open
 	public DBConnection() {
 		this.open();
 	}
 
-	/**
-	 * Gets the single instance of DBConnection.
-	 *
-	 * @return single instance of DBConnection
-	 */
+    // on regarde si l'instance est deja faite, si non, on appel le contructeuri 
 	public static synchronized DBConnection getInstance() {
 		if (DBConnection.INSTANCE == null) {
 			DBConnection.INSTANCE = new DBConnection();
 		}
 		return DBConnection.INSTANCE;
 	}
-
-	/**
-	 * Open.
-	 *
-	 * @return the boolean
-	 */
+	
+	//la méthode qui cree la connection, elle renvoit un boolean qui est true si la connection est faites 
 	private Boolean open() {
 		final DBProperties dbProperties = new DBProperties();
 		try {
+			//on fait appel au driver jdbc 
 			Class.forName("com.mysql.jdbc.Driver");
-			this.connection = DriverManager.getConnection(dbProperties.getUrl(), dbProperties.getLogin(), dbProperties.getPassword());
+			//on fait la connection et on enregiste l'objet de type connection dans celui de cette classe (composition)
+			//l'url le login et le password sont recuperer par les methode de dbProperties
+			this.connection = DriverManager.getConnection(dbProperties.getUrl(), dbProperties.getLogin(),
+					dbProperties.getPassword());
 		} catch (final ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (final SQLException e) {
@@ -53,11 +41,7 @@ public class DBConnection {
 		return true;
 	}
 
-	/**
-	 * Gets the connection.
-	 *
-	 * @return the connection
-	 */
+	//le getter de l'attribut connection
 	public Connection getConnection() {
 		return this.connection;
 	}
