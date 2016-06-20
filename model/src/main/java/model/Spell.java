@@ -14,9 +14,15 @@ public class Spell extends Affichable {
 	HashMap<PossibleMove, PossibleMove> rebondi = new HashMap<PossibleMove, PossibleMove>();
 	PossibleMove direction=PossibleMove.NONE;
 
+	/**
+	 * Constructor of the spell
+	 * @param x
+	 * @param y
+	 */
 	public Spell(int x, int y) {
 		super(x, y);
-
+		
+		//change the direction of the spell when ther is a collision
 		this.rebondi.put(PossibleMove.DOWN, PossibleMove.UP);
 		this.rebondi.put(PossibleMove.DOWNLEFT, PossibleMove.UPRIGHT);
 		this.rebondi.put(PossibleMove.DOWNRIGHT, PossibleMove.UPLEFT);
@@ -34,6 +40,12 @@ public class Spell extends Affichable {
 
 	}
 	
+	/**
+	 * The method that handles fire
+	 * @param x
+	 * @param y
+	 * @param direction
+	 */
 	public void fire(int x, int y, PossibleMove direction){
 		if(this.get_hidden()){
 			SoundEffect.SHOOT.play();
@@ -45,6 +57,11 @@ public class Spell extends Affichable {
 	    	}
 	    }
 
+
+
+	/* (non-Javadoc)
+	 * @see contract.IAffichable#move()
+	 */
 	public void move() {
 		//this.sprite=this.sprites.get(3);
 		if(!this.get_hidden()){
@@ -80,11 +97,20 @@ public class Spell extends Affichable {
 		}
 
 	}
+	
+	/* (non-Javadoc)
+	 * @see contract.IAffichable#get_type()
+	 */
 	public String get_type(){
 		return "S";
 	}
 
 
+	/**
+	 * @param x
+	 * @param y
+	 * @return true if there was a collision
+	 */
 	public boolean checkCollisions(int x, int y) {
 		IAffichable collision = this.world.get_collision(x, y);
 		if (collision == null) {
