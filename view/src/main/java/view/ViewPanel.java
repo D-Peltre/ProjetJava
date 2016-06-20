@@ -14,7 +14,7 @@ import contract.IAffichable;
  *
  * @author Jean-Aymeric Diet
  */
-class ViewPanel extends JPanel implements Observer {
+class ViewPanel extends JPanel{
 
 	/** The view frame. */
 	private ViewFrame					viewFrame;
@@ -66,6 +66,10 @@ class ViewPanel extends JPanel implements Observer {
 	public void send(ArrayList <IAffichable> objects){
 		this.viewbuilder.update(objects);
 	    }
+	
+	public ViewBuilder get_viewbuilder(){
+		return this.viewbuilder;
+	}
 
 	/*
 	 * (non-Javadoc)

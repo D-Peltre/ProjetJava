@@ -27,7 +27,18 @@ public class ViewBuilder{
      }
    public void update(ArrayList <IAffichable> object) {	 
 	   this.objects=object;
-	   this.viewpanel.repaint();
+	   try{
+		   this.viewpanel.repaint();
+	   	   }
+	   catch(NullPointerException e){
+		   System.err.println("Unable to get grip on my viewpanel");
+	   	   }
+       }
+   public int get_score(){
+	   return this.score;
+   	   }
+   public ArrayList <IAffichable> get_objects(){
+	   return this.objects;
        }
    public void render(Graphics graphics){
 	 graphics.clearRect(0, 0, this.viewpanel.getWidth(), this.viewpanel.getHeight());
@@ -35,13 +46,6 @@ public class ViewBuilder{
 	 graphics.fillRect(0, 0, this.viewpanel.getWidth(), this.viewpanel.getHeight());
 	 graphics.setColor(new Color(255,255,255));
 	 for(IAffichable object:this.objects){
-		   /*System.out.print("X:");
-		   System.out.print(object.getX());
-		   System.out.print(" Y:");
-		   System.out.print(object.getY());
-		   System.out.print(" TypeObject:'");
-		   System.out.print(object.get_type());
-		   System.out.println("'");*/
 		   graphics.drawImage(object.getSprite(), object.getX()*32, object.getY()*32, viewpanel);
 		   }
 	 graphics.drawString("Score: "+this.score, 10, this.viewpanel.getHeight()-8);
