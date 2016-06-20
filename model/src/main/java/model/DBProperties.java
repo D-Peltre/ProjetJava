@@ -4,7 +4,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-//Cette classe a pour role de lire le fichier model.properties et de renvoyer l'url, le login et le password qui sont dedans 
+/**
+ * This class has the role to read the file model.properties 
+ * And send URL , login and password 
+ *
+ */
 class DBProperties extends Properties {
 
 	private static final long serialVersionUID = 5289057445894568927L;
@@ -26,8 +30,7 @@ class DBProperties extends Properties {
 	 */
 	public DBProperties() {
 		InputStream inputStream;
-		// imputStream est un flux d'entree qui permet de lire des données, ici
-		// dans le fichier model.properties
+		// imputStream is an input flux for read data in model.properties
 		inputStream = this.getClass().getClassLoader().getResourceAsStream(DBProperties.PROPERTIES_FILE_NAME);
 
 		if (inputStream != null) {
@@ -36,8 +39,7 @@ class DBProperties extends Properties {
 			} catch (final IOException e) {
 				e.printStackTrace();
 			}
-			// Si on peut lire le fichier, on recupere l'url, le login et le
-			// password
+			// if we can read file, set url,login and password
 			this.setUrl(this.getProperty("url"));
 			this.setLogin(this.getProperty("login"));
 			this.setPassword(this.getProperty("password"));
