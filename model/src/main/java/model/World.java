@@ -54,18 +54,18 @@ public class World implements IWorld{
 	 * Add a given object to the world. Note it doesn't work at the moment because a list of objects can't be modified while in a foreach-loop; the current spell system use a workaround
 	 * @param object - The object to add
 	 */
-	public void add(IAffichable object){
+	/*public void add(IAffichable object){
 		this.al.add(object);
 		object.registerWorld(this);
 		object.set_hidden(false);
-	    }
+	    }*/
 	
 	/**
 	 * Remove a object from the list of objects. Note that, because the list of objects cannot be modified during a foreach loop, the current implementation just hides the object.
 	 * @param object - the object to remove
 	 */
 	public void remove(IAffichable object){
-		this.al.remove(object);
+		/*this.al.remove(object);*/
 		object.set_hidden(true);
 	    }
 	
